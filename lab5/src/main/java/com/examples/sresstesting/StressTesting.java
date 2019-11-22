@@ -11,7 +11,7 @@ import java.io.IOException;
 public class StressTesting {
     public static void main(String[] args) throws IOException {
 
-        static ActorRef mainActor;
+        static ActorRef controlActor;
         private static final String LOCALHOST = "localhost";
         private static final String SERVER_INFO = "Server online at http://localhost:8080/\nPress RETURN to stop...";
         private static final String PACKAGE_ID = "packageId";
@@ -29,10 +29,10 @@ public class StressTesting {
 
         final CompletionStage<ServerBinding> binding = http.bindAndHandle(
                 routeFlow,
-                ConnectHttp.toHost("localhost", 8080),
+                ConnectHttp.toHost(LOCALHOST, SERVER_PORT),
                 materializer
         );
-        System.out.println("Server online at http://localhost:8080/\nPress RETURN to stop...");
+        System.out.println(SERVER_INFO);
         System.in.read();
         binding
                 .thenCompose(ServerBinding::unbind)
