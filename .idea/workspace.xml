@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="44f73463-5e15-459f-9c49-84b624d2723c" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/lab5/src/main/java/com/examples/sresstesting/FindingResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/lab5/src/main/java/com/examples/sresstesting/FindingResult.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lab5/src/main/java/com/examples/sresstesting/CacheActor.java" beforeDir="false" afterPath="$PROJECT_DIR$/lab5/src/main/java/com/examples/sresstesting/CacheActor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lab5/src/main/java/com/examples/sresstesting/TestingResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/lab5/src/main/java/com/examples/sresstesting/TestingResult.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/lab5/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -38,8 +39,8 @@
       <file leaf-file-name="FindingResult.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lab5/src/main/java/com/examples/sresstesting/FindingResult.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="437">
-              <caret line="23" column="34" selection-start-line="23" selection-start-column="34" selection-end-line="23" selection-end-column="34" />
+            <state relative-caret-position="152">
+              <caret line="8" column="1" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
               <folding>
                 <element signature="e#321#322#0" expanded="true" />
                 <element signature="e#355#356#0" expanded="true" />
@@ -57,8 +58,18 @@
       <file leaf-file-name="TestingResult.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lab5/src/main/java/com/examples/sresstesting/TestingResult.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="38">
-              <caret line="2" column="26" selection-start-line="2" selection-start-column="26" selection-end-line="2" selection-end-column="26" />
+            <state relative-caret-position="380">
+              <caret line="20" column="40" selection-start-line="20" selection-start-column="40" selection-end-line="20" selection-end-column="40" />
+              <folding>
+                <element signature="e#180#181#0" expanded="true" />
+                <element signature="e#215#216#0" expanded="true" />
+                <element signature="e#283#284#0" expanded="true" />
+                <element signature="e#309#310#0" expanded="true" />
+                <element signature="e#335#336#0" expanded="true" />
+                <element signature="e#370#371#0" expanded="true" />
+                <element signature="e#399#400#0" expanded="true" />
+                <element signature="e#436#437#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -66,8 +77,8 @@
       <file leaf-file-name="CacheActor.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lab5/src/main/java/com/examples/sresstesting/CacheActor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="608">
-              <caret line="33" column="60" selection-start-line="33" selection-start-column="60" selection-end-line="33" selection-end-column="60" />
+            <state relative-caret-position="798">
+              <caret line="43" column="33" lean-forward="true" selection-start-line="43" selection-start-column="33" selection-end-line="43" selection-end-column="33" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -93,8 +104,9 @@
         <option value="$PROJECT_DIR$/lab5/pom.xml" />
         <option value="$PROJECT_DIR$/lab5/src/main/java/com/examples/sresstesting/tea.java" />
         <option value="$PROJECT_DIR$/lab5/src/main/java/com/examples/sresstesting/StressTesting.java" />
-        <option value="$PROJECT_DIR$/lab5/src/main/java/com/examples/sresstesting/CacheActor.java" />
         <option value="$PROJECT_DIR$/lab5/src/main/java/com/examples/sresstesting/FindingResult.java" />
+        <option value="$PROJECT_DIR$/lab5/src/main/java/com/examples/sresstesting/TestingResult.java" />
+        <option value="$PROJECT_DIR$/lab5/src/main/java/com/examples/sresstesting/CacheActor.java" />
       </list>
     </option>
   </component>
@@ -285,13 +297,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lab5/src/main/java/com/examples/sresstesting/TestingResult.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" column="26" selection-start-line="2" selection-start-column="26" selection-end-line="2" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lab5/src/main/java/com/examples/sresstesting/StressTesting.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="548">
@@ -302,10 +307,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/lab5/src/main/java/com/examples/sresstesting/TestingResult.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="20" column="40" selection-start-line="20" selection-start-column="40" selection-end-line="20" selection-end-column="40" />
+          <folding>
+            <element signature="e#180#181#0" expanded="true" />
+            <element signature="e#215#216#0" expanded="true" />
+            <element signature="e#283#284#0" expanded="true" />
+            <element signature="e#309#310#0" expanded="true" />
+            <element signature="e#335#336#0" expanded="true" />
+            <element signature="e#370#371#0" expanded="true" />
+            <element signature="e#399#400#0" expanded="true" />
+            <element signature="e#436#437#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/lab5/src/main/java/com/examples/sresstesting/FindingResult.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="23" column="34" selection-start-line="23" selection-start-column="34" selection-end-line="23" selection-end-column="34" />
+        <state relative-caret-position="152">
+          <caret line="8" column="1" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
           <folding>
             <element signature="e#321#322#0" expanded="true" />
             <element signature="e#355#356#0" expanded="true" />
@@ -321,8 +343,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lab5/src/main/java/com/examples/sresstesting/CacheActor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="608">
-          <caret line="33" column="60" selection-start-line="33" selection-start-column="60" selection-end-line="33" selection-end-column="60" />
+        <state relative-caret-position="798">
+          <caret line="43" column="33" lean-forward="true" selection-start-line="43" selection-start-column="33" selection-end-line="43" selection-end-column="33" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

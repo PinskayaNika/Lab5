@@ -3,21 +3,21 @@ package com.examples.sresstesting;
 import javafx.util.Pair;
 
 public class TestingResult {
-    Pair<String, Integer> msgPair;
+    private Pair<String, Pair<Integer, Integer>> msg;
 
-    public TestingResult(Pair<Integer, Integer> pair) {
-        this.msgPair = pair;
+    public TestingResult(Pair<String, Pair<Integer, Integer>> msg) {
+        this.msg = msg;
     }
 
-    public Pair<String, Integer> getMsgPair() {
-        return msgPair;
+    public Pair<String, Pair<Integer, Integer>> TestingResult() {
+        return msg;
     }
 
     public String getURL() {
-        return msgPair.getKey();
+        return msg.getKey();
     }
 
-    public int getCount() {
-        return msgPair.getValue();
+    public int getTime() {
+        return msg.getValue().getValue();
     }
 }
