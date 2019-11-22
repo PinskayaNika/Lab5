@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="44f73463-5e15-459f-9c49-84b624d2723c" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/lab5/src/main/java/com/examples/sresstesting/TestingResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/lab5/src/main/java/com/examples/sresstesting/TestingResult.java" afterDir="false" />
-    </list>
+    <list default="true" id="44f73463-5e15-459f-9c49-84b624d2723c" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/lab5/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -35,7 +33,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FindingResult.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="FindingResult.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lab5/src/main/java/com/examples/sresstesting/FindingResult.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="152">
@@ -73,11 +71,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CacheActor.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="CacheActor.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lab5/src/main/java/com/examples/sresstesting/CacheActor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="798">
-              <caret line="49" column="9" selection-start-line="49" selection-start-column="9" selection-end-line="49" selection-end-column="9" />
+            <state relative-caret-position="301">
+              <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -104,8 +102,8 @@
         <option value="$PROJECT_DIR$/lab5/src/main/java/com/examples/sresstesting/tea.java" />
         <option value="$PROJECT_DIR$/lab5/src/main/java/com/examples/sresstesting/StressTesting.java" />
         <option value="$PROJECT_DIR$/lab5/src/main/java/com/examples/sresstesting/FindingResult.java" />
-        <option value="$PROJECT_DIR$/lab5/src/main/java/com/examples/sresstesting/CacheActor.java" />
         <option value="$PROJECT_DIR$/lab5/src/main/java/com/examples/sresstesting/TestingResult.java" />
+        <option value="$PROJECT_DIR$/lab5/src/main/java/com/examples/sresstesting/CacheActor.java" />
       </list>
     </option>
   </component>
@@ -306,16 +304,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lab5/src/main/java/com/examples/sresstesting/CacheActor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="798">
-          <caret line="49" column="9" selection-start-line="49" selection-start-column="9" selection-end-line="49" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lab5/src/main/java/com/examples/sresstesting/TestingResult.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="209">
@@ -346,6 +334,16 @@
             <element signature="e#498#499#0" expanded="true" />
             <element signature="e#541#542#0" expanded="true" />
             <element signature="e#570#571#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lab5/src/main/java/com/examples/sresstesting/CacheActor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="301">
+          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
