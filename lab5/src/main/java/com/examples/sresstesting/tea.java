@@ -40,7 +40,8 @@ public class  TestJS extends AllDirectives {
 
         TestJS app = new TestJS();
 
-        final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow = app.jsTesterRoute().flow(system, materializer);
+        final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow =
+                app.jsTesterRoute().flow(system, materializer);
         final CompletionStage<ServerBinding> binding = http.bindAndHandle(
                 routeFlow,
                 ConnectHttp.toHost(LOCALHOST, SERVER_PORT),
