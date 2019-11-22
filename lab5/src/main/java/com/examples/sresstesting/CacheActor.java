@@ -42,8 +42,8 @@ public class CacheActor extends AbstractActor {
                                 } else {
                                     temp = new HashMap<>();
                                 }
-                                    temp.put(msg.getCount(), msg.getTime());
-                                    data.put(msg.getURL(), temp);
+                        temp.put(msg.getCount(), msg.getTime());
+                        data.put(msg.getURL(), temp);
 
                             }
                     ).build();
