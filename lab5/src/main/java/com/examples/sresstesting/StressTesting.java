@@ -3,11 +3,13 @@ package com.examples.sresstesting;
 import akka.actor.ActorSystem;
 import akka.http.javadsl.ConnectHttp;
 import akka.http.javadsl.Http;
+import akka.stream.ActorMaterializer;
 
 import java.io.IOException;
 
 public class StressTesting {
     public static void main(String[] args) throws IOException {
+        //Инициализация http сервера в akka
         System.out.println("start!");
         ActorSystem system = ActorSystem.create("routes");
         final Http http = Http.get(system);
