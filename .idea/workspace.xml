@@ -191,7 +191,8 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="916" y="72" width="1004" height="1124" extended-state="0" />
+    <frame x="916" y="72" width="1004" height="1124" extended-state="1" />
+    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" />
       <window_info anchor="bottom" id="TODO" order="6" />
