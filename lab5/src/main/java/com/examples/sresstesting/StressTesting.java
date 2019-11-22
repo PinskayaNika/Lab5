@@ -10,16 +10,17 @@ import akka.stream.ActorMaterializer;
 import java.io.IOException;
 
 public class StressTesting {
+
+    private static ActorRef controlActor;
+    private static final String LOCALHOST = "localhost";
+    private static final String SERVER_INFO = "Server online at http://localhost:8080/\nPress RETURN to stop...";
+    private static final String PACKAGE_ID = "packageId";
+    private static final String POST_MESSAGE = "Message was posted";
+    private static final int SERVER_PORT = 8080;
+    private static final int TIMEOUT_MILLIS = 5000;
+
     public static void main(String[] args) throws IOException {
-
-        private static ActorRef controlActor;
-        private static final String LOCALHOST = "localhost";
-        private static final String SERVER_INFO = "Server online at http://localhost:8080/\nPress RETURN to stop...";
-        private static final String PACKAGE_ID = "packageId";
-        private static final String POST_MESSAGE = "Message was posted";
-        private static final int SERVER_PORT = 8080;
-        private static final int TIMEOUT_MILLIS = 5000;
-
+        
         //Инициализация http сервера в akka
         System.out.println("start!");
         ActorSystem system = ActorSystem.create("routes");
