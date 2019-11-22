@@ -9,12 +9,12 @@ public class TestingResult {
         this.msg = msg;
     }
 
-    public Pair<String, Pair<Integer, Integer>> TestingResult() {
-        return msg;
-    }
-
     public String getURL() {
         return msg.getKey();
+    }
+
+    public int getCount() {
+        return msg.getValue().getKey();
     }
 
     public int getTime() {
