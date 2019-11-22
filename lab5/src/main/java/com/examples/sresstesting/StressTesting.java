@@ -36,7 +36,10 @@ public class StressTesting {
         final Http http = Http.get(system);
         final ActorMaterializer materializer = ActorMaterializer.create(system);
 
-        final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow = Flow.of()<вызов метода которому передаем Http, ActorSystem и ActorMaterializer>;
+        final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow = Flow.of(HttpRequest.class).map(
+
+        <вызов метода которому передаем Http, ActorSystem и ActorMaterializer>;
+        )
 
         final CompletionStage<ServerBinding> binding = http.bindAndHandle(
                 routeFlow,
