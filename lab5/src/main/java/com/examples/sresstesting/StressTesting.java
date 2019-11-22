@@ -12,7 +12,7 @@ import java.io.IOException;
 public class StressTesting {
     public static void main(String[] args) throws IOException {
 
-        static ActorRef controlActor;
+        private static ActorRef controlActor;
         private static final String LOCALHOST = "localhost";
         private static final String SERVER_INFO = "Server online at http://localhost:8080/\nPress RETURN to stop...";
         private static final String PACKAGE_ID = "packageId";
