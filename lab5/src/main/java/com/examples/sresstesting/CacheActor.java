@@ -17,32 +17,34 @@ package com.examples.sresstesting;
 import akka.actor.AbstractActor;
 import akka.actor.ActorRef;
 import akka.japi.pf.ReceiveBuilder;
+import scala.Int;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
 public class CacheActor extends AbstractActor {
-        private HashMap<Integer, ArrayList<StoreMessage>> store = new HashMap<>();
+        private HashMap<Integer, Map<Integer, Integer>> data = new HashMap<>();
 
         @Override
         public Receive createReceive() {
             return ReceiveBuilder.create()
-                    .match(MessageProcessingActor.class, req ->
+                    .match(FindingResult.class, msg ->
                             getSender().tell(
-                                    store.get(req.getPackageId()).toArray(),
+                                    data.get(msg.getPackageId()).toArray(),
                                     ActorRef.noSender()
                             )
                     )
-                    .match(StoreCommand.class, msg -> {
-                                if (store.containsKey(msg.getPackageId())) {
-                                    ArrayList<StoreMessage> tests = store.get(msg.getPackageId());
-                                    tests.add(msg.getStorageMessage());
-                                    store.put(msg.getPackageId(), tests);
+                    .match(TestingResult.class, msg -> {
+                        Map<Integer, Integer> temp;
+                                if (data.containsKey(msg.getURL())) {
+                                    temp = data.get(msg.getURL());
                                 } else {
-                                    ArrayList<StoreMessage> tests = new ArrayList<>();
-                                    tests.add(msg.getStorageMessage());
-                                    store.put(msg.getPackageId(), tests);
+                                    temp = new HashMap<>();
                                 }
+                                    temp.put(msg.getCount(), msg.getTime);
+                                    data.put(msg.getURL(), temp);
+
                             }
                     ).build();
         }
