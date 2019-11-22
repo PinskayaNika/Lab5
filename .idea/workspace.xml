@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="44f73463-5e15-459f-9c49-84b624d2723c" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/lab5/src/main/java/com/examples/sresstesting/tea.java" beforeDir="false" />
-    </list>
+    <list default="true" id="44f73463-5e15-459f-9c49-84b624d2723c" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/lab5/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
