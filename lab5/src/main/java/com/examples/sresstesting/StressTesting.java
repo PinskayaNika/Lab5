@@ -38,6 +38,9 @@ public class StressTesting {
 
         //HttpRequest (этот запрос пришел снаружи) преобразуется в HttpResponse
         final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow = Flow.of(HttpRequest.class).map(
+                req -> {
+                    if (req.get)
+                }
 
         <вызов метода которому передаем Http, ActorSystem и ActorMaterializer>;
         )
