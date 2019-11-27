@@ -24,7 +24,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class CacheActor extends AbstractActor {
-    private HashMap<Integer, Map<Integer, Integer>> data = new HashMap<>();
+    private HashMap<String, Map<Integer, Integer>> data = new HashMap<>();
 
     @Override
     public Receive createReceive() {
