@@ -29,11 +29,17 @@ public class CacheActor extends AbstractActor {
         @Override
         public Receive createReceive() {
             return ReceiveBuilder.create()
-                    .match(FindingResult.class, msg ->
-                            getSender().tell(
-                                    data.get(msg.getPackageId()).toArray(),
-                                    ActorRef.noSender()
-                            )
+                    .match(FindingResult.class, msg -> {
+                                String url = msg.getURL();
+                                int count = msg.getCount();
+                                if (data.containsKey(url) && data.get(url).containsKey(count)) {
+                                    getSender().tell(
+                                            data.get(url).get(count),
+                                            ActorRef.noSender());
+                                } else {
+                                    getSender().tell(-1, ActorRef.noSender());
+                                }
+                            }
                     )
                     .match(TestingResult.class, msg -> {
                         Map<Integer, Integer> temp;
