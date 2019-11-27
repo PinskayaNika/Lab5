@@ -30,6 +30,7 @@ public class CacheActor extends AbstractActor {
     public Receive createReceive() {
         return ReceiveBuilder.create()
 
+        //принимает поиск уже готового результата тестирования
                 .match(FindingResult.class, msg -> {
                             String url = msg.getURL();
                             int count = msg.getCount();
@@ -43,6 +44,7 @@ public class CacheActor extends AbstractActor {
                         }
                 )
 
+                //принимает результат тестрования
                 .match(TestingResult.class, msg -> {
                             Map<Integer, Integer> temp;
                             if (data.containsKey(msg.getURL())) {
