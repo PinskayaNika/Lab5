@@ -41,7 +41,7 @@ public class StressTesting {
         final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow = Flow.of(HttpRequest.class).map(
                 req -> {
                     if (req.method() == HttpMethods.GET) {
-                        
+
                     }
                 }
 
