@@ -7,6 +7,7 @@ import akka.actor.Props;
 import akka.http.javadsl.ConnectHttp;
 import akka.http.javadsl.Http;
 import akka.http.javadsl.ServerBinding;
+import akka.http.javadsl.model.HttpMethods;
 import akka.http.javadsl.model.HttpRequest;
 import akka.http.javadsl.model.HttpResponse;
 import akka.stream.ActorMaterializer;
@@ -39,7 +40,9 @@ public class StressTesting {
         //HttpRequest (этот запрос пришел снаружи) преобразуется в HttpResponse
         final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow = Flow.of(HttpRequest.class).map(
                 req -> {
-                    if (req.get)
+                    if (req.method() == HttpMethods.GET) {
+                        
+                    }
                 }
 
         <вызов метода которому передаем Http, ActorSystem и ActorMaterializer>;
