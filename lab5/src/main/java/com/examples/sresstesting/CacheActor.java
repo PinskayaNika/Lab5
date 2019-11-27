@@ -29,6 +29,7 @@ public class CacheActor extends AbstractActor {
     @Override
     public Receive createReceive() {
         return ReceiveBuilder.create()
+
                 .match(FindingResult.class, msg -> {
                             String url = msg.getURL();
                             int count = msg.getCount();
@@ -41,6 +42,7 @@ public class CacheActor extends AbstractActor {
                             }
                         }
                 )
+
                 .match(TestingResult.class, msg -> {
                             Map<Integer, Integer> temp;
                             if (data.containsKey(msg.getURL())) {
