@@ -13,6 +13,7 @@ import akka.http.javadsl.model.HttpResponse;
 import akka.pattern.Patterns;
 import akka.stream.ActorMaterializer;
 import akka.stream.javadsl.Flow;
+import akka.stream.javadsl.Sink;
 import akka.stream.javadsl.Source;
 import akka.util.ByteString;
 import akka.util.Collections;
@@ -76,7 +77,7 @@ public class StressTesting {
                                 Pair<String, Integer> data = new Pair<>(url, countInteger);
                                 Source<Pair<String, Integer>, NotUsed> source = Source.from(java.util.Collections.singletonList(data));
 
-                                
+                                Flow<Pair<String, Integer>, HttpResponse, NotUsed> test Sink = 
 
 
 
