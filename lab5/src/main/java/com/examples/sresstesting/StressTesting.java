@@ -31,7 +31,7 @@ public class StressTesting {
     private static final String HOME_DIR = "/";
     private static final String EMPTY_STRING = "";
     private static final String COUNT = "count";
-    private static final String TEST_URL = "/";
+    private static final String TEST_URL = "testURL";
 
     public static void main(String[] args) throws IOException {
 
