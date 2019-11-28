@@ -44,6 +44,9 @@ public class StressTesting {
         final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow = Flow.of(HttpRequest.class).map(
                 req -> {
                     if (req.method() == HttpMethods.GET) {
+                        if (req.getUri().path().equals(HOME_DIR)) {
+                            
+                        }
 
 //                        С помощью Patterns.ask посылаем запрос в кеширующий актор — есть ли результат. Обрабатываем ответ с помощью метода thenCompose
 //                        если результат уже посчитан, то возвращаем его как completedFuture
