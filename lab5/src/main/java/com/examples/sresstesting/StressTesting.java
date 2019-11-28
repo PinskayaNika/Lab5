@@ -15,6 +15,7 @@ import akka.stream.ActorMaterializer;
 import akka.stream.javadsl.Flow;
 
 import java.io.IOException;
+import java.time.Duration;
 import java.util.concurrent.CompletionStage;
 
 public class StressTesting {
@@ -49,7 +50,12 @@ public class StressTesting {
 //                        Source.from(Collections.singletonList(r))
 //                                .toMat(testSink, Keep.right()).run(materializer);
                         Patterns.ask(
-                                controlActor, new FindingResult()
+                                controlActor, new FindingResult(), data.second())),
+                        Duration.ofMillis(TIME_MILLIS)
+                        )
+                        Patterns.ask(
+                                controlActor, new TestingResult(), data.second())),
+                        Duration.ofMillis(TIME_MILLIS)
                         )
                     }
                 }
