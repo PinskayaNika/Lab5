@@ -28,6 +28,9 @@ public class StressTesting {
     private static final String POST_MESSAGE = "Message was posted";
     private static final int SERVER_PORT = 8080; //(localhost)
     private static final int TIMEOUT_MILLIS = 5000;
+    private static final String HOME_DIR = "/";
+    private static final String EMPTY_STRING = "";
+    private static final String COUNT = "count";
 
     public static void main(String[] args) throws IOException {
 
