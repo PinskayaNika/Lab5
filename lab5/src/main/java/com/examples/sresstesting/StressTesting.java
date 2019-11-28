@@ -51,7 +51,7 @@ public class StressTesting {
 //                        Source.from(Collections.singletonList(r))
 //                                .toMat(testSink, Keep.right()).run(materializer);
                         Patterns.ask(
-                                controlActor, new FindingResult(), data.second())),
+                                controlActor, new FindingResult(new javafx.util.Pair<>(data.first(), ), data.second())),
                         Duration.ofMillis(TIMEOUT_MILLIS)
                         )
                         Patterns.ask(
