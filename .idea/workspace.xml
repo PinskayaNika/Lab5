@@ -104,9 +104,9 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
+  <component name="ProjectFrameBounds">
     <option name="y" value="25" />
-    <option name="width" value="1015" />
+    <option name="width" value="964" />
     <option name="height" value="1050" />
   </component>
   <component name="ProjectView">
@@ -241,7 +241,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="25" width="1015" height="1050" extended-state="1" />
+    <frame x="0" y="25" width="964" height="1050" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
@@ -256,7 +256,7 @@
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2082922" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21933472" />
       <window_info id="Learn" order="2" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
