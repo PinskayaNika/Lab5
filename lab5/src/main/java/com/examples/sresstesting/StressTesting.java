@@ -71,7 +71,7 @@ public class StressTesting {
                             try {
                                 Integer countInteger =Integer.parseInt(count);
                                 Pair<String, Integer> data = new Pair<>(url, countInteger);
-                                Source<Pair<String, Integer>, NotUsed> source = Source.from(java.util.Collections.singleton())
+                                Source<Pair<String, Integer>, NotUsed> source = Source.from(Collections.singletonList(data))
 
                             }
                         }
