@@ -26,11 +26,10 @@
       <file leaf-file-name="StressTesting.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lab5/src/main/java/com/examples/sresstesting/StressTesting.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1710">
-              <caret line="90" column="42" selection-start-line="90" selection-start-column="42" selection-end-line="90" selection-end-column="42" />
+            <state relative-caret-position="-494">
+              <caret line="22" column="26" selection-start-line="22" selection-start-column="26" selection-end-line="22" selection-end-column="26" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#3483#3506#0" expanded="true" />
+                <element signature="e#3500#3523#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -338,8 +337,7 @@
         <state relative-caret-position="665">
           <caret line="35" column="45" selection-start-line="35" selection-start-column="45" selection-end-line="35" selection-end-column="45" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3483#3506#0" expanded="true" />
+            <element signature="e#3500#3523#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -356,8 +354,7 @@
         <state relative-caret-position="779">
           <caret line="41" column="8" selection-start-line="41" selection-start-column="8" selection-end-line="41" selection-end-column="8" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3483#3506#0" expanded="true" />
+            <element signature="e#3500#3523#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -460,11 +457,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lab5/src/main/java/com/examples/sresstesting/StressTesting.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1710">
-          <caret line="90" column="42" selection-start-line="90" selection-start-column="42" selection-end-line="90" selection-end-column="42" />
+        <state relative-caret-position="-494">
+          <caret line="22" column="26" selection-start-line="22" selection-start-column="26" selection-end-line="22" selection-end-column="26" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3483#3506#0" expanded="true" />
+            <element signature="e#3500#3523#0" expanded="true" />
           </folding>
         </state>
       </provider>

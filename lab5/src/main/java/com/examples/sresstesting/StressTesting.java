@@ -15,10 +15,12 @@ import akka.stream.ActorMaterializer;
 import akka.stream.javadsl.Flow;
 import akka.stream.javadsl.Sink;
 import akka.stream.javadsl.Source;
+import akka.japi.Pair;
 import akka.util.ByteString;
-import akka.util.Collections;
-import javafx.util.Pair;
+//import akka.util.Collections;
+//import javafx.util.Pair;
 import org.omg.CORBA.TIMEOUT;
+import  akka.util.Timeout;
 
 import java.io.IOException;
 import java.time.Duration;
@@ -75,7 +77,7 @@ public class StressTesting {
                             try {
                                 Integer countInteger =Integer.parseInt(count);
                                 Pair<String, Integer> data = new Pair<>(url, countInteger);
-                                Source<Pair<String, Integer>, NotUsed> source = Source.from(java.util.Collections.singletonList(data));
+                                Source<Pair<String, Integer>, NotUsed> source = Source.from(Collections.singletonList(data));
 
                                 Flow<Pair<String, Integer>, HttpResponse, NotUsed> testSink = Flow.<Pair<String, Integer>> create()
                                         .map(pair -> new Pair<> (HttpRequest.create().withUri(pair.first()), pair.second()))
