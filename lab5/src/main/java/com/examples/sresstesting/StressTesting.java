@@ -15,6 +15,7 @@ import akka.stream.ActorMaterializer;
 import akka.stream.javadsl.Flow;
 import akka.stream.javadsl.Source;
 import akka.util.ByteString;
+import akka.util.Collections;
 import javafx.util.Pair;
 import org.omg.CORBA.TIMEOUT;
 
@@ -70,7 +71,7 @@ public class StressTesting {
                             try {
                                 Integer countInteger =Integer.parseInt(count);
                                 Pair<String, Integer> data = new Pair<>(url, countInteger);
-                                Source<Pair<String, Integer>, NotUsed> source = S
+                                Source<Pair<String, Integer>, NotUsed> source = Source.from(java.util.Collections.singleton())
 
                             }
                         }
