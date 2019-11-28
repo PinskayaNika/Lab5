@@ -31,6 +31,7 @@ public class StressTesting {
     private static final String HOME_DIR = "/";
     private static final String EMPTY_STRING = "";
     private static final String COUNT = "count";
+    private static final String TEST_URL = "/";
 
     public static void main(String[] args) throws IOException {
 
@@ -48,7 +49,7 @@ public class StressTesting {
                 req -> {
                     if (req.method() == HttpMethods.GET) {
                         if (req.getUri().path().equals(HOME_DIR)) {
-                            String url = req.getUri
+                            String url = req.getUri().query().get(TEST_URL).orElse(EMPTY_STRING)
                         }
 
 //                        С помощью Patterns.ask посылаем запрос в кеширующий актор — есть ли результат. Обрабатываем ответ с помощью метода thenCompose
