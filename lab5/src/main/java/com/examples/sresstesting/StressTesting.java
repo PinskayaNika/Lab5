@@ -77,7 +77,18 @@ public class StressTesting {
                                 Pair<String, Integer> data = new Pair<>(url, countInteger);
                                 Source<Pair<String, Integer>, NotUsed> source = Source.from(java.util.Collections.singletonList(data));
 
-                                Flow<Pair<String, Integer>, HttpResponse, NotUsed> test Sink = 
+                                Flow<Pair<String, Integer>, HttpResponse, NotUsed> testSink = Flow.<Pair<String, Integer>> create()
+                                        .map(pair -> new Pair<> (HttpRequest.create().withUri(pair.first()), pair.second()))
+                                        .mapAsync(1, pair -> {
+                                            return Patterns.ask(
+                                                    controlActor, new FindingResult(new javafx.util.Pair<>(data.first(), data.second())),
+                                                    Duration.ofMillis(TIMEOUT_MILLIS)
+                                            ).thenCompose(r -> {
+                                                if () {
+
+                                                }
+                                            });
+                                        });
 
 
 
@@ -86,12 +97,7 @@ public class StressTesting {
 //                        если нет, то создаем на лету flow из данных запроса, выполняем его и возвращаем СompletionStage<Long> :
 //                        Source.from(Collections.singletonList(r))
 //                                .toMat(testSink, Keep.right()).run(materializer);
-                        Patterns.ask(
-                                controlActor, new FindingResult(new javafx.util.Pair<>(data.first(), data.second())),
-                        Duration.ofMillis(TIMEOUT_MILLIS)
-                        ).thenCompose(r -> {
-                            if ()
-                        })
+
                         Patterns.ask(
                                 controlActor, new TestingResult(), data.second())),
                         Duration.ofMillis(TIMEOUT_MILLIS)

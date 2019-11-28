@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="44f73463-5e15-459f-9c49-84b624d2723c" name="Default" comment="" />
+    <list default="true" id="44f73463-5e15-459f-9c49-84b624d2723c" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/lab5/src/main/java/com/examples/sresstesting/StressTesting.java" beforeDir="false" afterPath="$PROJECT_DIR$/lab5/src/main/java/com/examples/sresstesting/StressTesting.java" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/lab5/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -24,10 +26,11 @@
       <file leaf-file-name="StressTesting.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lab5/src/main/java/com/examples/sresstesting/StressTesting.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="406">
-              <caret line="79" column="95" selection-start-line="79" selection-start-column="95" selection-end-line="79" selection-end-column="95" />
+            <state relative-caret-position="1710">
+              <caret line="90" column="42" selection-start-line="90" selection-start-column="42" selection-end-line="90" selection-end-column="42" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#3483#3506#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -336,6 +339,7 @@
           <caret line="35" column="45" selection-start-line="35" selection-start-column="45" selection-end-line="35" selection-end-column="45" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#3483#3506#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -353,6 +357,7 @@
           <caret line="41" column="8" selection-start-line="41" selection-start-column="8" selection-end-line="41" selection-end-column="8" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#3483#3506#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -455,10 +460,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lab5/src/main/java/com/examples/sresstesting/StressTesting.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="406">
-          <caret line="79" column="95" selection-start-line="79" selection-start-column="95" selection-end-line="79" selection-end-column="95" />
+        <state relative-caret-position="1710">
+          <caret line="90" column="42" selection-start-line="90" selection-start-column="42" selection-end-line="90" selection-end-column="42" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#3483#3506#0" expanded="true" />
           </folding>
         </state>
       </provider>
