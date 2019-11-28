@@ -74,10 +74,11 @@ public class StressTesting {
                             try {
                                 Integer countInteger =Integer.parseInt(count);
                                 Pair<String, Integer> data = new Pair<>(url, countInteger);
-                                Source<Pair<String, Integer>, NotUsed> source = Source.from(Collections.singletonList(data))
+                                Source<Pair<String, Integer>, NotUsed> source = Source.from(java.util.Collections.singletonList(data));
 
-                            }
-                        }
+                                
+
+
 
 //                        С помощью Patterns.ask посылаем запрос в кеширующий актор — есть ли результат. Обрабатываем ответ с помощью метода thenCompose
 //                        если результат уже посчитан, то возвращаем его как completedFuture
@@ -94,6 +95,8 @@ public class StressTesting {
                                 controlActor, new TestingResult(), data.second())),
                         Duration.ofMillis(TIMEOUT_MILLIS)
                         )
+                    }
+                        }
                     }
                 }
 
