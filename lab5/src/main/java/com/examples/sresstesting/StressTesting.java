@@ -13,7 +13,9 @@ import akka.http.javadsl.model.HttpResponse;
 import akka.pattern.Patterns;
 import akka.stream.ActorMaterializer;
 import akka.stream.javadsl.Flow;
+import akka.stream.javadsl.Source;
 import akka.util.ByteString;
+import javafx.util.Pair;
 import org.omg.CORBA.TIMEOUT;
 
 import java.io.IOException;
@@ -33,8 +35,10 @@ public class StressTesting {
     private static final String EMPTY_STRING = "";
     private static final String COUNT = "count";
     private static final String TEST_URL = "testURL";
-    private static final String URL_ERROR = "";
-    private static final String HOME_DIR = "/";
+    private static final String URL_ERROR = "URL PARAMETER IS EMPTY";
+    //private static final String HOME_DIR = "/";
+    //private static final String HOME_DIR = "/";
+    private static final String COUNT_ERROR = "COUNT PARAMETER IS EMPTY";
 
     public static void main(String[] args) throws IOException {
 
@@ -54,8 +58,20 @@ public class StressTesting {
                         if (req.getUri().path().equals(HOME_DIR)) {
                             String url = req.getUri().query().get(TEST_URL).orElse(EMPTY_STRING);
                             String count = req.getUri().query().get(COUNT).orElse(EMPTY_STRING);
+
                             if (url.isEmpty()) {
                                 return HttpResponse.create().withEntity(ByteString.fromString(URL_ERROR));
+                            }
+
+                            if (count.isEmpty()) {
+                                return HttpResponse.create().withEntity(ByteString.fromString(COUNT_ERROR));
+                            }
+
+                            try {
+                                Integer countInteger =Integer.parseInt(count);
+                                Pair<String, Integer> data = new Pair<>(url, countInteger);
+                                Source<Pair<String, Integer>, NotUsed> source = S
+
                             }
                         }
 
