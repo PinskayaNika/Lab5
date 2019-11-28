@@ -48,7 +48,7 @@ public class StressTesting {
                 req -> {
                     if (req.method() == HttpMethods.GET) {
                         if (req.getUri().path().equals(HOME_DIR)) {
-                            
+                            String url = req.getUri
                         }
 
 //                        С помощью Patterns.ask посылаем запрос в кеширующий актор — есть ли результат. Обрабатываем ответ с помощью метода thenCompose
