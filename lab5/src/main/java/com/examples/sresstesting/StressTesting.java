@@ -13,6 +13,7 @@ import akka.http.javadsl.model.HttpResponse;
 import akka.pattern.Patterns;
 import akka.stream.ActorMaterializer;
 import akka.stream.javadsl.Flow;
+import org.omg.CORBA.TIMEOUT;
 
 import java.io.IOException;
 import java.time.Duration;
@@ -25,7 +26,7 @@ public class StressTesting {
     private static final String SERVER_INFO = "Server online at http://localhost:8080/\nPress RETURN to stop...";
     private static final String PACKAGE_ID = "packageId";
     private static final String POST_MESSAGE = "Message was posted";
-    private static final int SERVER_PORT = 8080;
+    private static final int SERVER_PORT = 8080; //(localhost)
     private static final int TIMEOUT_MILLIS = 5000;
 
     public static void main(String[] args) throws IOException {
@@ -51,11 +52,11 @@ public class StressTesting {
 //                                .toMat(testSink, Keep.right()).run(materializer);
                         Patterns.ask(
                                 controlActor, new FindingResult(), data.second())),
-                        Duration.ofMillis(TIME_MILLIS)
+                        Duration.ofMillis(TIMEOUT_MILLIS)
                         )
                         Patterns.ask(
                                 controlActor, new TestingResult(), data.second())),
-                        Duration.ofMillis(TIME_MILLIS)
+                        Duration.ofMillis(TIMEOUT_MILLIS)
                         )
                     }
                 }
