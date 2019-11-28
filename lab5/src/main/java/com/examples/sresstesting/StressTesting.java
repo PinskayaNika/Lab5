@@ -54,7 +54,7 @@ public class StressTesting {
                                 controlActor, new FindingResult(new javafx.util.Pair<>(data.first(), data.second())),
                         Duration.ofMillis(TIMEOUT_MILLIS)
                         ).thenCompose(r -> {
-                            
+                            if ()
                         })
                         Patterns.ask(
                                 controlActor, new TestingResult(), data.second())),
