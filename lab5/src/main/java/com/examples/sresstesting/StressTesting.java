@@ -10,6 +10,7 @@ import akka.http.javadsl.ServerBinding;
 import akka.http.javadsl.model.HttpMethods;
 import akka.http.javadsl.model.HttpRequest;
 import akka.http.javadsl.model.HttpResponse;
+import akka.pattern.Patterns;
 import akka.stream.ActorMaterializer;
 import akka.stream.javadsl.Flow;
 
@@ -42,7 +43,14 @@ public class StressTesting {
                 req -> {
                     if (req.method() == HttpMethods.GET) {
 
-
+//                        С помощью Patterns.ask посылаем запрос в кеширующий актор — есть ли результат. Обрабатываем ответ с помощью метода thenCompose
+//                        если результат уже посчитан, то возвращаем его как completedFuture
+//                        если нет, то создаем на лету flow из данных запроса, выполняем его и возвращаем СompletionStage<Long> :
+//                        Source.from(Collections.singletonList(r))
+//                                .toMat(testSink, Keep.right()).run(materializer);
+                        Patterns.ask(
+                                controlActor, 
+                        )
                     }
                 }
 
