@@ -13,6 +13,7 @@ import akka.http.javadsl.model.HttpResponse;
 import akka.pattern.Patterns;
 import akka.stream.ActorMaterializer;
 import akka.stream.javadsl.Flow;
+import akka.util.ByteString;
 import org.omg.CORBA.TIMEOUT;
 
 import java.io.IOException;
@@ -32,6 +33,8 @@ public class StressTesting {
     private static final String EMPTY_STRING = "";
     private static final String COUNT = "count";
     private static final String TEST_URL = "testURL";
+    private static final String URL_ERROR = "";
+    private static final String HOME_DIR = "/";
 
     public static void main(String[] args) throws IOException {
 
@@ -52,7 +55,7 @@ public class StressTesting {
                             String url = req.getUri().query().get(TEST_URL).orElse(EMPTY_STRING);
                             String count = req.getUri().query().get(COUNT).orElse(EMPTY_STRING);
                             if (url.isEmpty()) {
-                                return 
+                                return HttpResponse.create().withEntity(ByteString.fromString(URL_ERROR));
                             }
                         }
 
