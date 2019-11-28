@@ -49,7 +49,7 @@ public class StressTesting {
 //                        Source.from(Collections.singletonList(r))
 //                                .toMat(testSink, Keep.right()).run(materializer);
                         Patterns.ask(
-                                controlActor, 
+                                controlActor, new FindingResult()
                         )
                     }
                 }
