@@ -95,7 +95,10 @@ public class StressTesting {
                                                 }
                                                 //fold for counting all time
                                                 Sink<ComletionStage<Long>> fold = Sink
-                                                        .fold(0, (agg, next) -> agg + next);
+                                                        .fold(0, (agg, next) -> {
+                                                            int testNext = (int) (0 + N)
+                                                            return agg + next;
+                                                        });
 
                                             });
                                         });
