@@ -110,7 +110,7 @@ public class StressTesting {
                                                                     return CompletableFuture.supplyAsync(() -> {
                                                                         System.currentTimeMillis()
                                                                     }).thenCompose(start -> CompletableFuture.supplyAsync(() -> {
-                                                                        
+
                                                                     })
                                                                 })
                                                                 testSink, Keep.right()).run(materializer);
@@ -138,7 +138,7 @@ public class StressTesting {
         <вызов метода которому передаем Http, ActorSystem и ActorMaterializer>;
         )
 
-        Sink<Integer, ComletionStage<Integer>> fold = Sink
+        Sink<Integer, CompletionStage<Integer>> fold = Sink
                 .fold(0, (agg, next) -> agg + next);
 
         RunnableGraph<CompletionStage<Integer>> runnableGraph =
