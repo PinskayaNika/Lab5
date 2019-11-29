@@ -116,10 +116,12 @@ public class StressTesting {
                                                                                 .execute()
                                                                                 .toCompletableFuture()
                                                                                 .thenCompose(answer ->
-                                                                                CompletableFuture.completedFuture(System.currentTimeMillis() - start))
-
-                                                                    })
+                                                                                CompletableFuture.completedFuture(System.currentTimeMillis() - start));
+                                                                        return whenResponse;
+                                                                    }));
                                                                 })
+                                                                .toMat((fold, Keep.right()), Keep.right()).run(materializer);
+                                                                
                                                                 testSink, Keep.right()).run(materializer);
 
                                             });
