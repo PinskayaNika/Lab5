@@ -45,6 +45,30 @@ public class StressTesting {
     private static final String PATH_ERROR = "BAD PATH";
     private static final int ZERO = 0;
 
+
+
+//    //private static ActorRef controlActor;
+//    //private static final Logger logger = LoggerFactory.getLogger(StressTesting.class);
+//    private static final String ROUTES = "routes";
+//    private static final String WELCOME_MSG = "start!";
+//    private static final String HOME_DIR = "/";
+//    private static final String TEST_URL = "testUrl";
+//    private static final String COUNT = "count";
+//    private static final String EMPTY_STRING = "";
+//    private static final String URL_ERROR = "URL PARAMETER IS EMPTY";
+//    private static final String COUNT_ERROR = "COUNT PARAMETER IS EMPTY";
+//    private static final String FINAL_ANSWER = "Medium response is in MS ->";
+//    private static final String NUMBER_ERROR = "NUMBER EXCEPTION";
+//    private static final String PATH_ERROR = "BAD PATH";
+//    private static final String GET_ERROR = "ONLY GET METHOD!";
+//    private static final String SERVER_WELCOME_MSG = "Server online at http://localhost:8080/\nPress RETURN to stop...";
+//    private static final String LOCALHOST = "localhost";
+//    private static final int LOCALHOST_PORT = 8080;
+//    private static final long TIME_MILLIS = 5000;
+//    private static final int ZERO = 0;
+//    private static final int NO_SUCH_DATA = -1;
+//    private static final int PARALLELISM = 1;
+
 //    public static void main(String[] args) throws IOException {
 //
 //        //Инициализация http сервера в akka
