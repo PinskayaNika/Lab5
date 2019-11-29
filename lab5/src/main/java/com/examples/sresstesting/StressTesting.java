@@ -143,8 +143,9 @@ public class StressTesting {
 //                                .toMat(testSink, Keep.right()).run(materializer);
 
                                 RunnableGraph<CompletionStage<HttpResponse>> runnableGraph =
-                                        source.via(routeFlow).toMap(Sink.last(), Keep.right());
+                                        source.via(testSink).toMat(Sink.last(), Keep.right());
                                 CompletionStage<HttpResponse> result = runnableGraph.run(materializer);
+                                
 
         Sink<Integer, CompletionStage<Integer>> fold = Sink
                 .fold(0, (agg, next) -> agg + next);
