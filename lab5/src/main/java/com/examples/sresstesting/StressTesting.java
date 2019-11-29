@@ -45,6 +45,7 @@ public class StressTesting {
     private static final String COUNT_ERROR = "COUNT PARAMETER IS EMPTY";
     private static final String GET_ERROR = "ONLY GET METHOD";
     private static final String PATH_ERROR = "BAD PATH";
+    private static final int ZERO = 0;
 
     public static void main(String[] args) throws IOException {
 
@@ -101,7 +102,7 @@ public class StressTesting {
                                                         //fold for counting all time
                                                         Sink<CompletionStage<Long>, CompletionStage<Integer>> fold = Sink
                                                                 .fold(0, (agg, next) -> {
-                                                                    int testNext = (int) (0 + next.toCompletableFuture().get());
+                                                                    int testNext = (int) (ZERO + next.toCompletableFuture().get());
                                                                     return agg + testNext;
                                                                 });
                                                         return Source.from(Collections.singletonList(pair))
@@ -109,8 +110,9 @@ public class StressTesting {
                                                                         Flow.<Pair<HttpRequest, Integer>>create()
                                                                                 .mapConcat(p -> Collections.nCopies(p.second(), p.first()))
                                                                                 .mapAsync(1, req2 -> {
-                                                                                    return CompletableFuture.supplyAsync(() ->
-                                                                                            System.currentTimeMillis()
+                                                                                    return CompletableFuture.supplyAsync(System::currentTimeMillis
+                                                                                            /*return CompletableFuture.supplyAsync(() ->
+                                                                                            System.currentTimeMillis()*/
                                                                                     ).thenCompose(start -> CompletableFuture.supplyAsync(() -> {
                                                                                         CompletionStage<Long> whenResponse = asyncHttpClient()
                                                                                                 .prepareGet(req2.getUri().toString())
@@ -121,7 +123,6 @@ public class StressTesting {
                                                                                                                 .completedFuture(System.currentTimeMillis() - start));
                                                                                         return whenResponse;
 
-
                                                                                         /*return asyncHttpClient()
                                                                                                 .prepareGet(req2.getUri().toString())
                                                                                                 .execute()
@@ -129,8 +130,6 @@ public class StressTesting {
                                                                                                 .thenCompose(answer ->
                                                                                                         CompletableFuture
                                                                                                                 .completedFuture(System.currentTimeMillis() - start));*/
-
-
 
                                                                                     }));
                                                                                 })
