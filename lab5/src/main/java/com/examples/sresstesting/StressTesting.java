@@ -155,8 +155,9 @@ public class StressTesting {
                         }
                     } else {
                         
-                    }
 
+                    }
+                }
 
                         Sink<Integer, CompletionStage<Integer>> fold = Sink
                                 .fold(0, (agg, next) -> agg + next);
@@ -173,4 +174,4 @@ public class StressTesting {
                                 .thenCompose(ServerBinding::unbind)
                                 .thenAccept(unbound -> system.terminate()); // and shutdown when done
                     }
-                }
+}
