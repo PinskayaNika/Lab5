@@ -129,7 +129,7 @@ public class StressTesting {
                                                                         controlActor,
                                                                         new TestingResult(new javafx.util.Pair<>(data.first(), new javafx.util.Pair<>(data.second(), sum))), TIMEOUT_MILLIS);
                                                                 Double middleValue = (double) sum / (double) countInteger;
-                                                                return CompletableFuture.completedFuture(HttpResponse.create().withEntity(ByteString.fromString()));
+                                                                return CompletableFuture.completedFuture(HttpResponse.create().withEntity(ByteString.fromString(FINAL_ANSWER + middleValue.toString())));
                                                                 )
                                                             }
                                                     );
