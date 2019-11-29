@@ -120,6 +120,18 @@ public class StressTesting {
                                                                                                         CompletableFuture
                                                                                                                 .completedFuture(System.currentTimeMillis() - start));
                                                                                         return whenResponse;
+
+
+                                                                                        /*return asyncHttpClient()
+                                                                                                .prepareGet(req2.getUri().toString())
+                                                                                                .execute()
+                                                                                                .toCompletableFuture()
+                                                                                                .thenCompose(answer ->
+                                                                                                        CompletableFuture
+                                                                                                                .completedFuture(System.currentTimeMillis() - start));*/
+
+
+
                                                                                     }));
                                                                                 })
                                                                                 .toMat(fold, Keep.right()), Keep.right()).run(materializer);
