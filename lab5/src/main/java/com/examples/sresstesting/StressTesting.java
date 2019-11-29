@@ -106,6 +106,9 @@ public class StressTesting {
                                                         .toMat(
                                                                 Flow.<Pair<HttpRequest, Integer>> create()
                                                                 .mapConcat(p -> Collections.nCopies(p.second(), p.first()))
+                                                                .mapAsync(1, req2 -> {
+                                                                    return CompletableFuture.supplyAsync(() -> )
+                                                                })
                                                                 testSink, Keep.right()).run(materializer);
 
                                             });
