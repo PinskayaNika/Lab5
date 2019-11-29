@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="44f73463-5e15-459f-9c49-84b624d2723c" name="Default" comment="" />
+    <list default="true" id="44f73463-5e15-459f-9c49-84b624d2723c" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/lab5/src/main/java/com/examples/sresstesting/StressTesting.java" beforeDir="false" afterPath="$PROJECT_DIR$/lab5/src/main/java/com/examples/sresstesting/StressTesting.java" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/lab5/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -24,8 +26,8 @@
       <file leaf-file-name="StressTesting.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lab5/src/main/java/com/examples/sresstesting/StressTesting.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="437">
-              <caret line="71" lean-forward="true" selection-start-line="71" selection-end-line="71" />
+            <state relative-caret-position="306">
+              <caret line="94" column="59" selection-start-line="94" selection-start-column="59" selection-end-line="94" selection-end-column="59" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#3500#3523#0" expanded="true" />
@@ -108,7 +110,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
+  <component name="ProjectFrameBounds">
     <option name="y" value="25" />
     <option name="width" value="985" />
     <option name="height" value="1050" />
@@ -245,7 +247,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="25" width="985" height="1050" extended-state="1" />
+    <frame x="0" y="25" width="985" height="1050" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
@@ -458,8 +460,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lab5/src/main/java/com/examples/sresstesting/StressTesting.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="71" lean-forward="true" selection-start-line="71" selection-end-line="71" />
+        <state relative-caret-position="306">
+          <caret line="94" column="59" selection-start-line="94" selection-start-column="59" selection-end-line="94" selection-end-column="59" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#3500#3523#0" expanded="true" />

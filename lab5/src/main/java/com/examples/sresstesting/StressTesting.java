@@ -82,11 +82,17 @@ public class StressTesting {
                                 Flow<Pair<String, Integer>, HttpResponse, NotUsed> testSink = Flow.<Pair<String, Integer>> create()
                                         .map(pair -> new Pair<> (HttpRequest.create().withUri(pair.first()), pair.second()))
                                         .mapAsync(1, pair -> {
+//                        С помощью Patterns.ask посылаем запрос в кеширующий актор — есть ли результат. Обрабатываем ответ с помощью метода thenCompose
+//                        если результат уже посчитан, то возвращаем его как completedFuture
+//                        если нет, то создаем на лету flow из данных запроса, выполняем его и возвращаем СompletionStage<Long> :
+//                        Source.from(Collections.singletonList(r))
+//                                .toMat(testSink, Keep.right()).run(materializer);
                                             return Patterns.ask(
                                                     controlActor, new FindingResult(new javafx.util.Pair<>(data.first(), data.second())),
                                                     Duration.ofMillis(TIMEOUT_MILLIS)
                                             ).thenCompose(r -> {
-                                                if () {
+                                                if ((int) r != -1) {
+                                                    return 
 
                                                 }
                                             });
