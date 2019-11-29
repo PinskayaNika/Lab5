@@ -19,6 +19,7 @@ import akka.util.ByteString;
 //import javafx.util.Pair;
 import org.omg.CORBA.TIMEOUT;
 import  akka.util.Timeout;
+import scala.concurrent.Future;
 
 import java.io.IOException;
 import java.time.Duration;
@@ -96,7 +97,7 @@ public class StressTesting {
                                                 //fold for counting all time
                                                 Sink<ComletionStage<Long>> fold = Sink
                                                         .fold(0, (agg, next) -> {
-                                                            int testNext = (int) (0 + N)
+                                                            int testNext = (int) (0 + next.toCompletableFuture().get());
                                                             return agg + next;
                                                         });
 
