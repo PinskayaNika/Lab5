@@ -24,8 +24,8 @@
       <file leaf-file-name="StressTesting.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lab5/src/main/java/com/examples/sresstesting/StressTesting.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="146" column="151" selection-start-line="146" selection-start-column="151" selection-end-line="146" selection-end-column="151" />
+            <state relative-caret-position="1248">
+              <caret line="146" column="150" selection-start-line="146" selection-start-column="150" selection-end-line="146" selection-end-column="150" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#3500#3523#0" expanded="true" />
@@ -478,8 +478,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lab5/src/main/java/com/examples/sresstesting/StressTesting.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="146" column="151" selection-start-line="146" selection-start-column="151" selection-end-line="146" selection-end-column="151" />
+        <state relative-caret-position="1248">
+          <caret line="146" column="150" selection-start-line="146" selection-start-column="150" selection-end-line="146" selection-end-column="150" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#3500#3523#0" expanded="true" />
