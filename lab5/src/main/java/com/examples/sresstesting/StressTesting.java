@@ -79,6 +79,7 @@ public class StressTesting {
                                         Pair<String, Integer> data = new Pair<>(url, countInteger);
                                         Source<Pair<String, Integer>, NotUsed> source = Source.from(Collections.singletonList(data));
 
+                                        //создание FloW
                                         Flow<Pair<String, Integer>, HttpResponse, NotUsed> testSink = Flow.<Pair<String, Integer>>create()
                                                 //map в Pair<url сайта из query параметра, Integer количество запросов>
                                                 .map(pair -> new Pair<>(HttpRequest.create().withUri(pair.first()), pair.second()))
