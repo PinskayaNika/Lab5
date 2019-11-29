@@ -240,8 +240,8 @@ public class StressTesting {
 
     public static void main(String[] args) throws IOException {
 
-        System.out.println(WELCOME_MSG);
-        ActorSystem system = ActorSystem.create(ROUTES);
+        System.out.println("start!");
+        ActorSystem system = ActorSystem.create("routes");
 
         controlActor = system.actorOf(Props.create(CacheActor.class));
         final Http http = Http.get(system);
@@ -269,11 +269,11 @@ public class StressTesting {
                                                     return Patterns
                                                             .ask(
                                                                     controlActor,
-                                                                    new GetMSG(new javafx.util.Pair<>(data.first(), data.second())),
-                                                                    Duration.ofMillis(TIME_MILLIS)
+                                                                    new FindingResult(new javafx.util.Pair<>(data.first(), data.second())),
+                                                                    Duration.ofMillis(TIMEOUT_MILLIS)
                                                             ).thenCompose(r ->
                                                             {
-                                                                if ((int) r != NO_SUCH_DATA) {
+                                                                if ((int) r != -1) {
                                                                     return CompletableFuture.completedFuture((int) r);
                                                                 }
                                                                 // fold for counting all time
@@ -286,7 +286,7 @@ public class StressTesting {
                                                                         .toMat(
                                                                                 Flow.<Pair<HttpRequest, Integer>>create()
                                                                                         .mapConcat(p -> Collections.nCopies(p.second(), p.first()))
-                                                                                        .mapAsync(PARALLELISM, req2 -> {
+                                                                                        .mapAsync(1, req2 -> {
                                                                                             return CompletableFuture.supplyAsync(() ->
                                                                                                     System.currentTimeMillis()
                                                                                             ).thenCompose(start -> CompletableFuture.supplyAsync(() -> {
@@ -302,7 +302,7 @@ public class StressTesting {
                                                                                         .toMat(fold, Keep.right()), Keep.right()).run(materializer);
                                                             }).thenCompose(
                                                                     sum -> {
-                                                                        Patterns.ask(controlActor, new PutMSG(new javafx.util.Pair<>(data.first(), new javafx.util.Pair<>(data.second(), sum))), 5000);
+                                                                        Patterns.ask(controlActor, new TestingResult(new javafx.util.Pair<>(data.first(), new javafx.util.Pair<>(data.second(), sum))), TIMEOUT_MILLIS);
                                                                         Double middleValue = (double) sum / (double) countInteger;
                                                                         return CompletableFuture.completedFuture(HttpResponse.create().withEntity(ByteString.fromString(FINAL_ANSWER + middleValue.toString())));
                                                                     }
@@ -326,10 +326,10 @@ public class StressTesting {
                 });
         final CompletionStage<ServerBinding> binding = http.bindAndHandle(
                 routeFlow,
-                ConnectHttp.toHost(LOCALHOST, LOCALHOST_PORT),
+                ConnectHttp.toHost(LOCALHOST, SERVER_PORT),
                 materializer
         );
-        System.out.println(SERVER_WELCOME_MSG);
+        System.out.println(SERVER_INFO);
         System.in.read();
         binding
                 .thenCompose(ServerBinding::unbind)
