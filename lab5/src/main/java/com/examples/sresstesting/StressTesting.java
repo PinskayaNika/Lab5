@@ -12,9 +12,7 @@ import akka.http.javadsl.model.HttpRequest;
 import akka.http.javadsl.model.HttpResponse;
 import akka.pattern.Patterns;
 import akka.stream.ActorMaterializer;
-import akka.stream.javadsl.Flow;
-import akka.stream.javadsl.Sink;
-import akka.stream.javadsl.Source;
+import akka.stream.javadsl.*;
 import akka.japi.Pair;
 import akka.util.ByteString;
 //import akka.util.Collections;
@@ -95,7 +93,10 @@ public class StressTesting {
                                                 if ((int) r != -1) {
                                                     return CompletableFuture.completedFuture((int) r);
                                                 }
-                                                //
+                                                //fold for counting all time
+                                                Sink<ComletionStage<Long>> fold = Sink
+                                                        .fold(0, (agg, next) -> agg + next);
+
                                             });
                                         });
 
@@ -118,6 +119,13 @@ public class StressTesting {
 
         <вызов метода которому передаем Http, ActorSystem и ActorMaterializer>;
         )
+
+        Sink<Integer, ComletionStage<Integer>> fold = Sink
+                .fold(0, (agg, next) -> agg + next);
+
+        RunnableGraph<CompletionStage<Integer>> runnableGraph =
+                source.via(routeFlow).toMap(fold, Keep.right());
+
 
         final CompletionStage<ServerBinding> binding = http.bindAndHandle(
                 routeFlow,
