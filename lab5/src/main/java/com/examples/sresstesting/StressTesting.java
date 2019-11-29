@@ -2,6 +2,7 @@ package com.examples.sresstesting;
 
 import akka.NotUsed;
 //import akka.actor.ActorRef;
+import akka.actor.ActorRef;
 import akka.actor.ActorSystem;
 import akka.actor.Props;
 import akka.http.javadsl.ConnectHttp;
@@ -28,47 +29,47 @@ import static org.asynchttpclient.Dsl.asyncHttpClient;
 
 public class StressTesting {
 
-    //private static ActorRef controlActor;
-//    private static final String LOCALHOST = "localhost";
-//    private static final String SERVER_INFO = "Server online at http://localhost:8080/\nPress RETURN to stop...";
-//    private static final int SERVER_PORT = 8080; //(localhost)
-//    private static final int TIMEOUT_MILLIS = 5000;
-//    private static final String HOME_DIR = "/";
-//    private static final String EMPTY_STRING = "";
-//    private static final String COUNT = "count";
-//    private static final String TEST_URL = "testURL";
-//    private static final String URL_ERROR = "URL PARAMETER IS EMPTY";
-//    private static final String FINAL_ANSWER = "Medium response is in MS ->";
-//    private static final String NUMBER_ERROR = "NUMBER EXCEPTION";
-//    private static final String COUNT_ERROR = "COUNT PARAMETER IS EMPTY";
-//    private static final String GET_ERROR = "ONLY GET METHOD";
-//    private static final String PATH_ERROR = "BAD PATH";
-//    private static final int ZERO = 0;
+    private static ActorRef controlActor;
+    private static final String LOCALHOST = "localhost";
+    private static final String SERVER_INFO = "Server online at http://localhost:8080/\nPress RETURN to stop...";
+    private static final int SERVER_PORT = 8080; //(localhost)
+    private static final int TIMEOUT_MILLIS = 5000;
+    private static final String HOME_DIR = "/";
+    private static final String EMPTY_STRING = "";
+    private static final String COUNT = "count";
+    private static final String TEST_URL = "testUrl";
+    private static final String URL_ERROR = "URL PARAMETER IS EMPTY";
+    private static final String FINAL_ANSWER = "Medium response is in MS ->";
+    private static final String NUMBER_ERROR = "NUMBER EXCEPTION";
+    private static final String COUNT_ERROR = "COUNT PARAMETER IS EMPTY";
+    private static final String GET_ERROR = "ONLY GET METHOD";
+    private static final String PATH_ERROR = "BAD PATH";
+    private static final int ZERO = 0;
 
 
 
 
     //private static ActorRef controlActor;
     //private static final Logger logger = LoggerFactory.getLogger(StressTesting.class);
-    private static final String ROUTES = "routes";
-    private static final String WELCOME_MSG = "start!";
-    private static final String HOME_DIR = "/";
-    private static final String TEST_URL = "testUrl";
-    private static final String COUNT = "count";
-    private static final String EMPTY_STRING = "";
-    private static final String URL_ERROR = "URL PARAMETER IS EMPTY";
-    private static final String COUNT_ERROR = "COUNT PARAMETER IS EMPTY";
-    private static final String FINAL_ANSWER = "Medium response is in MS ->";
-    private static final String NUMBER_ERROR = "NUMBER EXCEPTION";
-    private static final String PATH_ERROR = "BAD PATH";
-    private static final String GET_ERROR = "ONLY GET METHOD!";
-    private static final String SERVER_INFO= "Server online at http://localhost:8080/\nPress RETURN to stop...";
-    private static final String LOCALHOST = "localhost";
-    private static final int SERVER_PORT = 8080;
-    private static final long TIMEOUT_MILLIS = 5000;
-    private static final int ZERO = 0;
-    private static final int NO_SUCH_DATA = -1;
-    private static final int PARALLELISM = 1;
+//    private static final String ROUTES = "routes";
+//    private static final String WELCOME_MSG = "start!";
+//    private static final String HOME_DIR = "/";
+//    private static final String TEST_URL = "testUrl";
+//    private static final String COUNT = "count";
+//    private static final String EMPTY_STRING = "";
+//    private static final String URL_ERROR = "URL PARAMETER IS EMPTY";
+//    private static final String COUNT_ERROR = "COUNT PARAMETER IS EMPTY";
+//    private static final String FINAL_ANSWER = "Medium response is in MS ->";
+//    private static final String NUMBER_ERROR = "NUMBER EXCEPTION";
+//    private static final String PATH_ERROR = "BAD PATH";
+//    private static final String GET_ERROR = "ONLY GET METHOD!";
+//    private static final String SERVER_INFO= "Server online at http://localhost:8080/\nPress RETURN to stop...";
+//    private static final String LOCALHOST = "localhost";
+//    private static final int SERVER_PORT = 8080;
+//    private static final long TIMEOUT_MILLIS = 5000;
+//    private static final int ZERO = 0;
+//    private static final int NO_SUCH_DATA = -1;
+//    private static final int PARALLELISM = 1;
 
     public static void main(String[] args) throws IOException {
 
