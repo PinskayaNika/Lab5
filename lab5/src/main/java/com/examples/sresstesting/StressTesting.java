@@ -105,7 +105,7 @@ public class StressTesting {
                                                 return Source.from(Collections.singletonList(pair))
                                                         .toMat(
                                                                 Flow.<Pair<HttpRequest, Integer>> create()
-                                                                .mapConcat()
+                                                                .mapConcat(p -> Collections.nCopies(p.second(), p.first()))
                                                                 testSink, Keep.right()).run(materializer);
 
                                             });
