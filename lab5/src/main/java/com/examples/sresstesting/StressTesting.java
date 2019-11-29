@@ -249,7 +249,7 @@ import org.slf4j.LoggerFactory;
 
 public class StressTesting {
     private static ActorRef controlActor;
-    private static final Logger logger = LoggerFactory.getLogger(StressTesting.class);
+    //private static final Logger logger = LoggerFactory.getLogger(StressTesting.class);
     private static final String ROUTES = "routes";
     private static final String WELCOME_MSG = "start!";
     private static final String HOME_DIR = "/";
