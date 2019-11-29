@@ -1,7 +1,7 @@
 package com.examples.sresstesting;
 
 import akka.NotUsed;
-import akka.actor.ActorRef;
+//import akka.actor.ActorRef;
 import akka.actor.ActorSystem;
 import akka.actor.Props;
 import akka.http.javadsl.ConnectHttp;
@@ -15,9 +15,7 @@ import akka.japi.Pair;
 import akka.util.ByteString;
 //import akka.util.Collections;
 //import javafx.util.Pair;
-import org.omg.CORBA.TIMEOUT;
-import  akka.util.Timeout;
-import scala.concurrent.Future;
+//import org.omg.CORBA.TIMEOUT;
 
 import java.io.IOException;
 import java.time.Duration;
@@ -109,10 +107,22 @@ public class StressTesting {
                                                                 .toMat(
                                                                         Flow.<Pair<HttpRequest, Integer>>create()
                                                                                 .mapConcat(p -> Collections.nCopies(p.second(), p.first()))
-                                                                                .mapAsync(1, req2 -> {
-                                                                                    return CompletableFuture.supplyAsync(System::currentTimeMillis
+                                                                                .mapAsync(1, req2 -> CompletableFuture.supplyAsync(System::currentTimeMillis
+                                                                                        /*return CompletableFuture.supplyAsync(() ->
+                                                                                        System.currentTimeMillis()*/
+                                                                                ).thenCompose(start -> CompletableFuture.supplyAsync(() -> {
+                                                                                    CompletionStage<Long> whenResponse = asyncHttpClient()
+                                                                                            .prepareGet(req2.getUri().toString())
+                                                                                            .execute()
+                                                                                            .toCompletableFuture()
+                                                                                            .thenCompose(answer ->
+                                                                                                    CompletableFuture
+                                                                                                            .completedFuture(System.currentTimeMillis() - start));
+                                                                                    return whenResponse;
+
+                                                                                    /*return CompletableFuture.supplyAsync(System::currentTimeMillis
                                                                                             /*return CompletableFuture.supplyAsync(() ->
-                                                                                            System.currentTimeMillis()*/
+                                                                                            System.currentTimeMillis()
                                                                                     ).thenCompose(start -> CompletableFuture.supplyAsync(() -> {
                                                                                         CompletionStage<Long> whenResponse = asyncHttpClient()
                                                                                                 .prepareGet(req2.getUri().toString())
@@ -129,10 +139,19 @@ public class StressTesting {
                                                                                                 .toCompletableFuture()
                                                                                                 .thenCompose(answer ->
                                                                                                         CompletableFuture
-                                                                                                                .completedFuture(System.currentTimeMillis() - start));*/
+                                                                                                                .completedFuture(System.currentTimeMillis() - start));
 
-                                                                                    }));
-                                                                                })
+                                                                                    }));*/
+
+                                                                                    /*return asyncHttpClient()
+                                                                                            .prepareGet(req2.getUri().toString())
+                                                                                            .execute()
+                                                                                            .toCompletableFuture()
+                                                                                            .thenCompose(answer ->
+                                                                                                    CompletableFuture
+                                                                                                            .completedFuture(System.currentTimeMillis() - start));*/
+
+                                                                                })))
                                                                                 .toMat(fold, Keep.right()), Keep.right()).run(materializer);
                                                     })
                                                             .thenCompose(
