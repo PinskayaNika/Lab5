@@ -125,7 +125,8 @@ public class StressTesting {
                                                     .thenCompose(
                                                             sum -> {
                                                                 Patterns.ask(
-                                                                        controlActor, new TestingResult(new javafx.util.Pair<>(data.first())), data.second())),
+                                                                        controlActor,
+                                                                        new TestingResult(new javafx.util.Pair<>(data.first(), new javafx.util.Pair<>(data.second(), sum))), TIMEOUT_MILLIS);
                                                                 Duration.ofMillis(TIMEOUT_MILLIS)
                         )
                                                             }
