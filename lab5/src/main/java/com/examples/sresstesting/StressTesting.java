@@ -121,10 +121,15 @@ public class StressTesting {
                                                                     }));
                                                                 })
                                                                 .toMat((fold, Keep.right()), Keep.right()).run(materializer);
-                                                                
-                                                                testSink, Keep.right()).run(materializer);
-
-                                            });
+                                            })
+                                                    .thenCompose(
+                                                            sum -> {
+                                                                Patterns.ask(
+                                                                        controlActor, new TestingResult(new javafx.util.Pair<>(data.first())), data.second())),
+                                                                Duration.ofMillis(TIMEOUT_MILLIS)
+                        )
+                                                            }
+                                                    );
                                         });
 
 
