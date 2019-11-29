@@ -247,9 +247,9 @@ import java.util.concurrent.TimeUnit;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class AkkaStream {
+public class StressTesting {
     private static ActorRef controlActor;
-    private static final Logger logger = LoggerFactory.getLogger(AkkaStream.class);
+    private static final Logger logger = LoggerFactory.getLogger(StressTesting.class);
     private static final String ROUTES = "routes";
     private static final String WELCOME_MSG = "start!";
     private static final String HOME_DIR = "/";
