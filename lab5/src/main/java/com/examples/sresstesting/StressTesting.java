@@ -145,7 +145,7 @@ public class StressTesting {
                                 RunnableGraph<CompletionStage<HttpResponse>> runnableGraph =
                                         source.via(testSink).toMat(Sink.last(), Keep.right());
                                 CompletionStage<HttpResponse> result = runnableGraph.run(materializer);
-                                
+                                return result.toCompletableFuture().get();
 
         Sink<Integer, CompletionStage<Integer>> fold = Sink
                 .fold(0, (agg, next) -> agg + next);
