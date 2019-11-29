@@ -45,16 +45,16 @@ public class StressTesting {
     private static final String PATH_ERROR = "BAD PATH";
     private static final int ZERO = 0;
 
-    public static void main(String[] args) throws IOException {
-
-        //Инициализация http сервера в akka
-        System.out.println("start!");
-        ActorSystem system = ActorSystem.create("routes");
-
-        //controlActor = system.actorOf(Props.create(CacheActor.class));
-
-        final Http http = Http.get(system);
-        final ActorMaterializer materializer = ActorMaterializer.create(system);
+//    public static void main(String[] args) throws IOException {
+//
+//        //Инициализация http сервера в akka
+//        System.out.println("start!");
+//        ActorSystem system = ActorSystem.create("routes");
+//
+//        //controlActor = system.actorOf(Props.create(CacheActor.class));
+//
+//        final Http http = Http.get(system);
+//        final ActorMaterializer materializer = ActorMaterializer.create(system);
 
 //        //HttpRequest (этот запрос пришел снаружи) преобразуется в HttpResponse
 //        //<вызов метода которому передаем Http, ActorSystem и ActorMaterializer>
@@ -270,14 +270,14 @@ public class StressTesting {
 //    private static final int NO_SUCH_DATA = -1;
 //    private static final int PARALLELISM = 1;
 //
-//    public static void main(String[] args) throws IOException {
-//
-//        System.out.println(WELCOME_MSG);
-//        ActorSystem system = ActorSystem.create(ROUTES);
-//
-//        //controlActor = system.actorOf(Props.create(CacheActor.class));
-//        final Http http = Http.get(system);
-//        final ActorMaterializer materializer = ActorMaterializer.create(system);
+    public static void main(String[] args) throws IOException {
+
+        System.out.println(SERVER_INFO);
+        ActorSystem system = ActorSystem.create("routes");
+
+        //controlActor = system.actorOf(Props.create(CacheActor.class));
+        final Http http = Http.get(system);
+        final ActorMaterializer materializer = ActorMaterializer.create(system);
         final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow = Flow.of(HttpRequest.class).map(
                 req -> {
                     if (req.method() == HttpMethods.GET) {
