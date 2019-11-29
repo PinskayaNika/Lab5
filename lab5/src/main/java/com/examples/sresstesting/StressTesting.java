@@ -72,7 +72,7 @@ public class StressTesting {
                                         return HttpResponse.create().withEntity(ByteString.fromString(URL_ERROR));
                                     }
 
-                                    if (url.isEmpty()) {
+                                    if (count.isEmpty()) {
                                         return HttpResponse.create().withEntity(ByteString.fromString(COUNT_ERROR));
                                     }
 
