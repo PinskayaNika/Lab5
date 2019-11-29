@@ -106,22 +106,22 @@ public class StressTesting {
                                                         });
                                                 return Source.from(Collections.singletonList(pair))
                                                         .toMat(
-                                                                Flow.<Pair<HttpRequest, Integer>> create()
-                                                                .mapConcat(p -> Collections.nCopies(p.second(), p.first()))
-                                                                .mapAsync(1, req2 -> {
-                                                                    return CompletableFuture.supplyAsync(() ->
-                                                                        System.currentTimeMillis()
-                                                                    ).thenCompose(start -> CompletableFuture.supplyAsync(() -> {
-                                                                        CompletionStage<Long> whenResponse = asyncHttpClient()
-                                                                                .prepareGet(req2.getUri().toString())
-                                                                                .execute()
-                                                                                .toCompletableFuture()
-                                                                                .thenCompose(answer ->
-                                                                                CompletableFuture.completedFuture(System.currentTimeMillis() - start));
-                                                                        return whenResponse;
-                                                                    }));
-                                                                })
-                                                                .toMat(fold, Keep.right()), Keep.right()).run(materializer);
+                                                                Flow.<Pair<HttpRequest, Integer>>create()
+                                                                        .mapConcat(p -> Collections.nCopies(p.second(), p.first()))
+                                                                        .mapAsync(1, req2 -> {
+                                                                            return CompletableFuture.supplyAsync(() ->
+                                                                                    System.currentTimeMillis()
+                                                                            ).thenCompose(start -> CompletableFuture.supplyAsync(() -> {
+                                                                                CompletionStage<Long> whenResponse = asyncHttpClient()
+                                                                                        .prepareGet(req2.getUri().toString())
+                                                                                        .execute()
+                                                                                        .toCompletableFuture()
+                                                                                        .thenCompose(answer ->
+                                                                                                CompletableFuture.completedFuture(System.currentTimeMillis() - start));
+                                                                                return whenResponse;
+                                                                            }));
+                                                                        })
+                                                                        .toMat(fold, Keep.right()), Keep.right()).run(materializer);
                                             })
                                                     .thenCompose(
                                                             sum -> {
@@ -130,7 +130,6 @@ public class StressTesting {
                                                                         new TestingResult(new javafx.util.Pair<>(data.first(), new javafx.util.Pair<>(data.second(), sum))), TIMEOUT_MILLIS);
                                                                 Double middleValue = (double) sum / (double) countInteger;
                                                                 return CompletableFuture.completedFuture(HttpResponse.create().withEntity(ByteString.fromString(FINAL_ANSWER + middleValue.toString())));
-                                                                )
                                                             }
                                                     );
                                         });
@@ -143,17 +142,7 @@ public class StressTesting {
 //                        Source.from(Collections.singletonList(r))
 //                                .toMat(testSink, Keep.right()).run(materializer);
 
-                        Patterns.ask(
-                                controlActor, new TestingResult(), data.second())),
-                        Duration.ofMillis(TIMEOUT_MILLIS)
-                        )
-                    }
-                        }
-                    }
-                }
-
-        <вызов метода которому передаем Http, ActorSystem и ActorMaterializer>;
-        )
+            
 
         Sink<Integer, CompletionStage<Integer>> fold = Sink
                 .fold(0, (agg, next) -> agg + next);
