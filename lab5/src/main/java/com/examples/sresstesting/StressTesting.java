@@ -30,11 +30,9 @@ import static org.asynchttpclient.Dsl.asyncHttpClient;
 
 public class StressTesting {
 
-    private static ActorRef controlActor;
+    //private static ActorRef controlActor;
     private static final String LOCALHOST = "localhost";
     private static final String SERVER_INFO = "Server online at http://localhost:8080/\nPress RETURN to stop...";
-    private static final String PACKAGE_ID = "packageId";
-    private static final String POST_MESSAGE = "Message was posted";
     private static final int SERVER_PORT = 8080; //(localhost)
     private static final int TIMEOUT_MILLIS = 5000;
     private static final String HOME_DIR = "/";
@@ -54,7 +52,7 @@ public class StressTesting {
         System.out.println("start!");
         ActorSystem system = ActorSystem.create("routes");
 
-        controlActor = system.actorOf(Props.create(CacheActor.class));
+        //controlActor = system.actorOf(Props.create(CacheActor.class));
 
         final Http http = Http.get(system);
         final ActorMaterializer materializer = ActorMaterializer.create(system);
@@ -92,7 +90,7 @@ public class StressTesting {
 //                        Source.from(Collections.singletonList(r))
 //                                .toMat(testSink, Keep.right()).run(materializer);
                                                     return Patterns.ask(
-                                                            controlActor,
+                                                            system.actorOf(Props.create(CacheActor.class)),
                                                             new FindingResult(new javafx.util.Pair<>(data.first(), data.second())),
                                                             Duration.ofMillis(TIMEOUT_MILLIS)
                                                     ).thenCompose(r -> {
@@ -118,7 +116,8 @@ public class StressTesting {
                                                                                                 .execute()
                                                                                                 .toCompletableFuture()
                                                                                                 .thenCompose(answer ->
-                                                                                                        CompletableFuture.completedFuture(System.currentTimeMillis() - start));
+                                                                                                        CompletableFuture
+                                                                                                                .completedFuture(System.currentTimeMillis() - start));
                                                                                         return whenResponse;
                                                                                     }));
                                                                                 })
@@ -127,10 +126,14 @@ public class StressTesting {
                                                             .thenCompose(
                                                                     sum -> {
                                                                         Patterns.ask(
-                                                                                controlActor,
-                                                                                new TestingResult(new javafx.util.Pair<>(data.first(), new javafx.util.Pair<>(data.second(), sum))), TIMEOUT_MILLIS);
+                                                                                system.actorOf(Props.create(CacheActor.class)),
+                                                                                new TestingResult(
+                                                                                        new javafx.util.Pair<>(data.first(), new javafx.util.Pair<>(data.second(), sum))),
+                                                                                        TIMEOUT_MILLIS);
                                                                         Double middleValue = (double) sum / (double) countInteger;
-                                                                        return CompletableFuture.completedFuture(HttpResponse.create().withEntity(ByteString.fromString(FINAL_ANSWER + middleValue.toString())));
+                                                                        return CompletableFuture
+                                                                                .completedFuture(HttpResponse
+                                                                                        .create().withEntity(ByteString.fromString(FINAL_ANSWER + middleValue.toString())));
                                                                     }
                                                             );
                                                 });
@@ -149,15 +152,18 @@ public class StressTesting {
                                         return result.toCompletableFuture().get();
                                     } catch (NumberFormatException e) {
                                         e.printStackTrace();
-                                        return HttpResponse.create().withEntity(ByteString.fromString(NUMBER_ERROR));
+                                        return HttpResponse
+                                                .create().withEntity(ByteString.fromString(NUMBER_ERROR));
                                     }
                                 } else {
                                     req.discardEntityBytes(materializer);
-                                    return HttpResponse.create().withStatus(StatusCodes.NOT_FOUND).withEntity(PATH_ERROR);
+                                    return HttpResponse
+                                            .create().withStatus(StatusCodes.NOT_FOUND).withEntity(PATH_ERROR);
                                 }
                             } else {
                                 req.discardEntityBytes(materializer);
-                                return HttpResponse.create().withStatus(StatusCodes.NOT_FOUND).withEntity(GET_ERROR);
+                                return HttpResponse
+                                        .create().withStatus(StatusCodes.NOT_FOUND).withEntity(GET_ERROR);
                             }
                         });
         final CompletionStage<ServerBinding> binding = http.bindAndHandle(
