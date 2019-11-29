@@ -62,77 +62,77 @@ public class StressTesting {
         //HttpRequest (этот запрос пришел снаружи) преобразуется в HttpResponse
         final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow = Flow.of(HttpRequest.class)
                 .map(
-                req -> {
-                    if (req.method() == HttpMethods.GET) {
-                        if (req.getUri().path().equals(HOME_DIR)) {
-                            String url = req.getUri().query().get(TEST_URL).orElse(EMPTY_STRING);
-                            String count = req.getUri().query().get(COUNT).orElse(EMPTY_STRING);
+                        req -> {
+                            if (req.method() == HttpMethods.GET) {
+                                if (req.getUri().path().equals(HOME_DIR)) {
+                                    String url = req.getUri().query().get(TEST_URL).orElse(EMPTY_STRING);
+                                    String count = req.getUri().query().get(COUNT).orElse(EMPTY_STRING);
 
-                            if (url.isEmpty()) {
-                                return HttpResponse.create().withEntity(ByteString.fromString(URL_ERROR));
-                            }
+                                    if (url.isEmpty()) {
+                                        return HttpResponse.create().withEntity(ByteString.fromString(URL_ERROR));
+                                    }
 
-                            if (count.isEmpty()) {
-                                return HttpResponse.create().withEntity(ByteString.fromString(COUNT_ERROR));
-                            }
+                                    if (count.isEmpty()) {
+                                        return HttpResponse.create().withEntity(ByteString.fromString(COUNT_ERROR));
+                                    }
 
-                            try {
-                                Integer countInteger = Integer.parseInt(count);
-                                Pair<String, Integer> data = new Pair<>(url, countInteger);
-                                Source<Pair<String, Integer>, NotUsed> source = Source.from(Collections.singletonList(data));
+                                    try {
+                                        Integer countInteger = Integer.parseInt(count);
+                                        Pair<String, Integer> data = new Pair<>(url, countInteger);
+                                        Source<Pair<String, Integer>, NotUsed> source = Source.from(Collections.singletonList(data));
 
-                                Flow<Pair<String, Integer>, HttpResponse, NotUsed> testSink = Flow.<Pair<String, Integer>>create()
-                                        //map в Pair<url сайта из query параметра, Integer количество запросов>
-                                        .map(pair -> new Pair<>(HttpRequest.create().withUri(pair.first()), pair.second()))
-                                        //mapAsync,
-                                        .mapAsync(1, pair -> {
+                                        Flow<Pair<String, Integer>, HttpResponse, NotUsed> testSink = Flow.<Pair<String, Integer>>create()
+                                                //map в Pair<url сайта из query параметра, Integer количество запросов>
+                                                .map(pair -> new Pair<>(HttpRequest.create().withUri(pair.first()), pair.second()))
+                                                //mapAsync,
+                                                .mapAsync(1, pair -> {
 //                        С помощью Patterns.ask посылаем запрос в кеширующий актор — есть ли результат. Обрабатываем ответ с помощью метода thenCompose
 //                        если результат уже посчитан, то возвращаем его как completedFuture
 //                        если нет, то создаем на лету flow из данных запроса, выполняем его и возвращаем СompletionStage<Long> :
 //                        Source.from(Collections.singletonList(r))
 //                                .toMat(testSink, Keep.right()).run(materializer);
-                                            return Patterns.ask(
-                                                    controlActor, new FindingResult(new javafx.util.Pair<>(data.first(), data.second())),
-                                                    Duration.ofMillis(TIMEOUT_MILLIS)
-                                            ).thenCompose(r -> {
-                                                if ((int) r != -1) {
-                                                    return CompletableFuture.completedFuture((int) r);
-                                                }
-                                                //fold for counting all time
-                                                Sink<CompletionStage<Long>, CompletionStage<Integer>> fold = Sink
-                                                        .fold(0, (agg, next) -> {
-                                                            int testNext = (int) (0 + next.toCompletableFuture().get());
-                                                            return agg + testNext;
-                                                        });
-                                                return Source.from(Collections.singletonList(pair))
-                                                        .toMat(
-                                                                Flow.<Pair<HttpRequest, Integer>>create()
-                                                                        .mapConcat(p -> Collections.nCopies(p.second(), p.first()))
-                                                                        .mapAsync(1, req2 -> {
-                                                                            return CompletableFuture.supplyAsync(() ->
-                                                                                    System.currentTimeMillis()
-                                                                            ).thenCompose(start -> CompletableFuture.supplyAsync(() -> {
-                                                                                CompletionStage<Long> whenResponse = asyncHttpClient()
-                                                                                        .prepareGet(req2.getUri().toString())
-                                                                                        .execute()
-                                                                                        .toCompletableFuture()
-                                                                                        .thenCompose(answer ->
-                                                                                                CompletableFuture.completedFuture(System.currentTimeMillis() - start));
-                                                                                return whenResponse;
-                                                                            }));
-                                                                        })
-                                                                        .toMat(fold, Keep.right()), Keep.right()).run(materializer);
-                                            })
-                                                    .thenCompose(
-                                                            sum -> {
-                                                                Patterns.ask(
-                                                                        controlActor,
-                                                                        new TestingResult(new javafx.util.Pair<>(data.first(), new javafx.util.Pair<>(data.second(), sum))), TIMEOUT_MILLIS);
-                                                                Double middleValue = (double) sum / (double) countInteger;
-                                                                return CompletableFuture.completedFuture(HttpResponse.create().withEntity(ByteString.fromString(FINAL_ANSWER + middleValue.toString())));
-                                                            }
-                                                    );
-                                        });
+                                                    return Patterns.ask(
+                                                            controlActor, new FindingResult(new javafx.util.Pair<>(data.first(), data.second())),
+                                                            Duration.ofMillis(TIMEOUT_MILLIS)
+                                                    ).thenCompose(r -> {
+                                                        if ((int) r != -1) {
+                                                            return CompletableFuture.completedFuture((int) r);
+                                                        }
+                                                        //fold for counting all time
+                                                        Sink<CompletionStage<Long>, CompletionStage<Integer>> fold = Sink
+                                                                .fold(0, (agg, next) -> {
+                                                                    int testNext = (int) (0 + next.toCompletableFuture().get());
+                                                                    return agg + testNext;
+                                                                });
+                                                        return Source.from(Collections.singletonList(pair))
+                                                                .toMat(
+                                                                        Flow.<Pair<HttpRequest, Integer>>create()
+                                                                                .mapConcat(p -> Collections.nCopies(p.second(), p.first()))
+                                                                                .mapAsync(1, req2 -> {
+                                                                                    return CompletableFuture.supplyAsync(() ->
+                                                                                            System.currentTimeMillis()
+                                                                                    ).thenCompose(start -> CompletableFuture.supplyAsync(() -> {
+                                                                                        CompletionStage<Long> whenResponse = asyncHttpClient()
+                                                                                                .prepareGet(req2.getUri().toString())
+                                                                                                .execute()
+                                                                                                .toCompletableFuture()
+                                                                                                .thenCompose(answer ->
+                                                                                                        CompletableFuture.completedFuture(System.currentTimeMillis() - start));
+                                                                                        return whenResponse;
+                                                                                    }));
+                                                                                })
+                                                                                .toMat(fold, Keep.right()), Keep.right()).run(materializer);
+                                                    })
+                                                            .thenCompose(
+                                                                    sum -> {
+                                                                        Patterns.ask(
+                                                                                controlActor,
+                                                                                new TestingResult(new javafx.util.Pair<>(data.first(), new javafx.util.Pair<>(data.second(), sum))), TIMEOUT_MILLIS);
+                                                                        Double middleValue = (double) sum / (double) countInteger;
+                                                                        return CompletableFuture.completedFuture(HttpResponse.create().withEntity(ByteString.fromString(FINAL_ANSWER + middleValue.toString())));
+                                                                    }
+                                                            );
+                                                });
 
 
 //                        С помощью Patterns.ask посылаем запрос в кеширующий актор — есть ли результат. Обрабатываем ответ с помощью метода thenCompose
@@ -141,37 +141,32 @@ public class StressTesting {
 //                        Source.from(Collections.singletonList(r))
 //                                .toMat(testSink, Keep.right()).run(materializer);
 
-                                RunnableGraph<CompletionStage<HttpResponse>> runnableGraph =
-                                        source.via(testSink).toMat(Sink.last(), Keep.right());
-                                CompletionStage<HttpResponse> result = runnableGraph.run(materializer);
-                                return result.toCompletableFuture().get();
-                            } catch (NumberFormatException e) {
-                                e.printStackTrace();
-                                return HttpResponse.create().withEntity(ByteString.fromString(NUMBER_ERROR));
+                                        RunnableGraph<CompletionStage<HttpResponse>> runnableGraph =
+                                                source.via(testSink).toMat(Sink.last(), Keep.right());
+                                        CompletionStage<HttpResponse> result = runnableGraph.run(materializer);
+                                        return result.toCompletableFuture().get();
+                                    } catch (NumberFormatException e) {
+                                        e.printStackTrace();
+                                        return HttpResponse.create().withEntity(ByteString.fromString(NUMBER_ERROR));
+                                    }
+                                } else {
+                                    req.discardEntityBytes(materializer);
+                                    return HttpResponse.create().withStatus(StatusCodes.NOT_FOUND).withEntity(PATH_ERROR);
+                                }
+                            } else {
+                                req.discardEntityBytes(materializer);
+                                return HttpResponse.create().withStatus(StatusCodes.NOT_FOUND).withEntity(GET_ERROR);
                             }
-                        } else {
-                            req.discardEntityBytes(materializer);
-                            return HttpResponse.create().withStatus(StatusCodes.NOT_FOUND).withEntity(PATH_ERROR);
-                        }
-                    } else {
-                        
-
-                    }
-                }
-
-                        Sink<Integer, CompletionStage<Integer>> fold = Sink
-                                .fold(0, (agg, next) -> agg + next);
-
-
-                        final CompletionStage<ServerBinding> binding = http.bindAndHandle(
-                                routeFlow,
-                                ConnectHttp.toHost(LOCALHOST, SERVER_PORT),
-                                materializer
-                        );
-                        System.out.println(SERVER_INFO);
-                        System.in.read();
-                        binding
-                                .thenCompose(ServerBinding::unbind)
-                                .thenAccept(unbound -> system.terminate()); // and shutdown when done
-                    }
+                        });
+        final CompletionStage<ServerBinding> binding = http.bindAndHandle(
+                routeFlow,
+                ConnectHttp.toHost(LOCALHOST, SERVER_PORT),
+                materializer
+        );
+        System.out.println(SERVER_INFO);
+        System.in.read();
+        binding
+                .thenCompose(ServerBinding::unbind)
+                .thenAccept(unbound -> system.terminate()); // and shutdown when done
+    }
 }
