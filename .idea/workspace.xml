@@ -26,12 +26,11 @@
       <file leaf-file-name="StressTesting.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lab5/src/main/java/com/examples/sresstesting/StressTesting.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1388">
-              <caret line="242" column="34" selection-start-line="242" selection-start-column="34" selection-end-line="242" selection-end-column="34" />
+            <state relative-caret-position="-3497">
+              <caret line="3" column="29" selection-start-line="3" selection-start-column="29" selection-end-line="3" selection-end-column="29" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#18913#18936#0" expanded="true" />
-                <element signature="e#20912#20940#0" expanded="true" />
+                <element signature="e#5125#5148#0" expanded="true" />
+                <element signature="e#7639#7667#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -331,9 +330,8 @@
         <state relative-caret-position="665">
           <caret line="35" column="45" selection-start-line="35" selection-start-column="45" selection-end-line="35" selection-end-column="45" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#18913#18936#0" expanded="true" />
-            <element signature="e#20912#20940#0" expanded="true" />
+            <element signature="e#5125#5148#0" expanded="true" />
+            <element signature="e#7639#7667#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -350,9 +348,8 @@
         <state relative-caret-position="779">
           <caret line="41" column="8" selection-start-line="41" selection-start-column="8" selection-end-line="41" selection-end-column="8" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#18913#18936#0" expanded="true" />
-            <element signature="e#20912#20940#0" expanded="true" />
+            <element signature="e#5125#5148#0" expanded="true" />
+            <element signature="e#7639#7667#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -455,12 +452,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lab5/src/main/java/com/examples/sresstesting/StressTesting.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1388">
-          <caret line="242" column="34" selection-start-line="242" selection-start-column="34" selection-end-line="242" selection-end-column="34" />
+        <state relative-caret-position="-3497">
+          <caret line="3" column="29" selection-start-line="3" selection-start-column="29" selection-end-line="3" selection-end-column="29" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#18913#18936#0" expanded="true" />
-            <element signature="e#20912#20940#0" expanded="true" />
+            <element signature="e#5125#5148#0" expanded="true" />
+            <element signature="e#7639#7667#0" expanded="true" />
           </folding>
         </state>
       </provider>
