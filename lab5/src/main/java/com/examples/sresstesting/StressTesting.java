@@ -142,10 +142,10 @@ public class StressTesting {
 //                        Source.from(Collections.singletonList(r))
 //                                .toMat(testSink, Keep.right()).run(materializer);
 
-//                                        RunnableGraph<CompletionStage<HttpResponse>> runnableGraph =
-//                                                source.via(testSink).toMat(Sink.last(), Keep.right());
-//                                        CompletionStage<HttpResponse> result = runnableGraph.run(materializer);
-                                        CompletionStage<HttpResponse> result = source.via(testSink).toMat(Sink.last(), Keep.right()).run(materializer);
+                                        RunnableGraph<CompletionStage<HttpResponse>> runnableGraph =
+                                                source.via(testSink).toMat(Sink.last(), Keep.right());
+                                        CompletionStage<HttpResponse> result = runnableGraph.run(materializer);
+                                        //CompletionStage<HttpResponse> result = source.via(testSink).toMat(Sink.last(), Keep.right()).run(materializer);
                                         return result.toCompletableFuture().get();
                                     } catch (NumberFormatException e) {
                                         e.printStackTrace();

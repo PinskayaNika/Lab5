@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="44f73463-5e15-459f-9c49-84b624d2723c" name="Default" comment="" />
+    <list default="true" id="44f73463-5e15-459f-9c49-84b624d2723c" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/lab5/src/main/java/com/examples/sresstesting/StressTesting.java" beforeDir="false" afterPath="$PROJECT_DIR$/lab5/src/main/java/com/examples/sresstesting/StressTesting.java" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/lab5/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -24,8 +26,8 @@
       <file leaf-file-name="StressTesting.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lab5/src/main/java/com/examples/sresstesting/StressTesting.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="266">
-              <caret line="74" column="44" selection-start-line="74" selection-start-column="40" selection-end-line="74" selection-end-column="45" />
+            <state relative-caret-position="342">
+              <caret line="144" column="32" selection-start-line="144" selection-start-column="32" selection-end-line="146" selection-end-column="36" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#3500#3523#0" expanded="true" />
@@ -437,8 +439,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lab5/src/main/java/com/examples/sresstesting/StressTesting.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="74" column="44" selection-start-line="74" selection-start-column="40" selection-end-line="74" selection-end-column="45" />
+        <state relative-caret-position="342">
+          <caret line="144" column="32" selection-start-line="144" selection-start-column="32" selection-end-line="146" selection-end-column="36" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#3500#3523#0" expanded="true" />
