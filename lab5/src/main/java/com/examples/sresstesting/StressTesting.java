@@ -44,8 +44,8 @@ public class StressTesting {
     private static final String COUNT = "count";
     private static final String TEST_URL = "testURL";
     private static final String URL_ERROR = "URL PARAMETER IS EMPTY";
-    //private static final String HOME_DIR = "/";
-    //private static final String HOME_DIR = "/";
+    private static final String FINAL_ANSWER = "Medium response is in MS ->";
+    private static final String NUMBER_ERROR = "NUMBER EXCEPTION";
     private static final String COUNT_ERROR = "COUNT PARAMETER IS EMPTY";
 
     public static void main(String[] args) throws IOException {
@@ -129,7 +129,7 @@ public class StressTesting {
                                                                         controlActor,
                                                                         new TestingResult(new javafx.util.Pair<>(data.first(), new javafx.util.Pair<>(data.second(), sum))), TIMEOUT_MILLIS);
                                                                 Double middleValue = (double) sum / (double) countInteger;
-                                                                return CompletableFuture.completedFuture(HttpResponse.create().withEntity(ByteString.fromString()))
+                                                                return CompletableFuture.completedFuture(HttpResponse.create().withEntity(ByteString.fromString()));
                                                                 )
                                                             }
                                                     );
