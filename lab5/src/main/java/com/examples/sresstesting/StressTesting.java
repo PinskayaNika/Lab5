@@ -142,7 +142,7 @@ public class StressTesting {
 //                        Source.from(Collections.singletonList(r))
 //                                .toMat(testSink, Keep.right()).run(materializer);
 
-            
+            CompletionStage<HttpResponse> result = 
 
         Sink<Integer, CompletionStage<Integer>> fold = Sink
                 .fold(0, (agg, next) -> agg + next);
