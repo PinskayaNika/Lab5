@@ -26,11 +26,12 @@
       <file leaf-file-name="StressTesting.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lab5/src/main/java/com/examples/sresstesting/StressTesting.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="475">
-              <caret line="103" column="63" selection-start-line="103" selection-start-column="63" selection-end-line="103" selection-end-column="63" />
+            <state relative-caret-position="494">
+              <caret line="107" column="75" selection-start-line="107" selection-start-column="75" selection-end-line="107" selection-end-column="75" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#3500#3523#0" expanded="true" />
+                <element signature="e#5794#5822#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -345,6 +346,7 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#3500#3523#0" expanded="true" />
+            <element signature="e#5794#5822#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -363,6 +365,7 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#3500#3523#0" expanded="true" />
+            <element signature="e#5794#5822#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -465,11 +468,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lab5/src/main/java/com/examples/sresstesting/StressTesting.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="103" column="63" selection-start-line="103" selection-start-column="63" selection-end-line="103" selection-end-column="63" />
+        <state relative-caret-position="494">
+          <caret line="107" column="75" selection-start-line="107" selection-start-column="75" selection-end-line="107" selection-end-column="75" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#3500#3523#0" expanded="true" />
+            <element signature="e#5794#5822#0" expanded="true" />
           </folding>
         </state>
       </provider>

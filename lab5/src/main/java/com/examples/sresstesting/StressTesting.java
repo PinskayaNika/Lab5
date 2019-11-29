@@ -103,7 +103,10 @@ public class StressTesting {
                                                             return agg + testNext;
                                                         });
                                                 return Source.from(Collections.singletonList(pair))
-                                                        .toMat(testSink, Keep.right()).run(materializer);
+                                                        .toMat(
+                                                                Flow.<Pair<HttpRequest, Integer>> create()
+                                                                .mapConcat()
+                                                                testSink, Keep.right()).run(materializer);
 
                                             });
                                         });
