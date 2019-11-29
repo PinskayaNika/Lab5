@@ -113,10 +113,9 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-23" />
     <option name="y" value="25" />
-    <option name="width" value="1004" />
-    <option name="height" value="1097" />
+    <option name="width" value="985" />
+    <option name="height" value="1050" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -193,9 +192,10 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Unnamed">
-    <configuration name="Unnamed" type="Application" factoryName="Application">
+  <component name="RunManager" selected="Application.StressTesting">
+    <configuration name="StressTesting" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="com.examples.sresstesting.StressTesting" />
+      <module name="lab5" />
       <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -263,7 +263,7 @@
     </configuration>
     <list>
       <item itemvalue="Maven.Unnamed" />
-      <item itemvalue="Application.Unnamed" />
+      <item itemvalue="Application.StressTesting" />
     </list>
   </component>
   <component name="SvnConfiguration">
