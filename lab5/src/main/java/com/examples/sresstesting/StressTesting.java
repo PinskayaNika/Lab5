@@ -60,7 +60,8 @@ public class StressTesting {
         final ActorMaterializer materializer = ActorMaterializer.create(system);
 
         //HttpRequest (этот запрос пришел снаружи) преобразуется в HttpResponse
-        final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow = Flow.of(HttpRequest.class).map(
+        final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow = Flow.of(HttpRequest.class)
+                .map(
                 req -> {
                     if (req.method() == HttpMethods.GET) {
                         if (req.getUri().path().equals(HOME_DIR)) {
@@ -120,15 +121,16 @@ public class StressTesting {
                                                                         return whenResponse;
                                                                     }));
                                                                 })
-                                                                .toMat((fold, Keep.right()), Keep.right()).run(materializer);
+                                                                .toMat(fold, Keep.right()), Keep.right()).run(materializer);
                                             })
                                                     .thenCompose(
                                                             sum -> {
                                                                 Patterns.ask(
                                                                         controlActor,
                                                                         new TestingResult(new javafx.util.Pair<>(data.first(), new javafx.util.Pair<>(data.second(), sum))), TIMEOUT_MILLIS);
-                                                                Duration.ofMillis(TIMEOUT_MILLIS)
-                        )
+                                                                Double middleValue = (double) sum / (double) countInteger;
+                                                                return CompletableFuture.completedFuture(HttpResponse.create().withEntity(ByteString.fromString()))
+                                                                )
                                                             }
                                                     );
                                         });
