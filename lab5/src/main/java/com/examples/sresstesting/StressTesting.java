@@ -153,23 +153,24 @@ public class StressTesting {
                             req.discardEntityBytes(materializer);
                             return HttpResponse.create().withStatus(StatusCodes.NOT_FOUND).withEntity(PATH_ERROR);
                         }
+                    } else {
+                        
+                    }
 
 
-        Sink<Integer, CompletionStage<Integer>> fold = Sink
-                .fold(0, (agg, next) -> agg + next);
+                        Sink<Integer, CompletionStage<Integer>> fold = Sink
+                                .fold(0, (agg, next) -> agg + next);
 
 
-
-
-        final CompletionStage<ServerBinding> binding = http.bindAndHandle(
-                routeFlow,
-                ConnectHttp.toHost(LOCALHOST, SERVER_PORT),
-                materializer
-        );
-        System.out.println(SERVER_INFO);
-        System.in.read();
-        binding
-                .thenCompose(ServerBinding::unbind)
-                .thenAccept(unbound -> system.terminate()); // and shutdown when done
-    }
-}
+                        final CompletionStage<ServerBinding> binding = http.bindAndHandle(
+                                routeFlow,
+                                ConnectHttp.toHost(LOCALHOST, SERVER_PORT),
+                                materializer
+                        );
+                        System.out.println(SERVER_INFO);
+                        System.in.read();
+                        binding
+                                .thenCompose(ServerBinding::unbind)
+                                .thenAccept(unbound -> system.terminate()); // and shutdown when done
+                    }
+                }
