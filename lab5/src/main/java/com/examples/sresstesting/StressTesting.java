@@ -95,7 +95,7 @@ public class StressTesting {
                                                     return CompletableFuture.completedFuture((int) r);
                                                 }
                                                 //fold for counting all time
-                                                Sink<ComletionStage<Long>> fold = Sink
+                                                Sink<CompletionStage<Long>, CompletionStage<Integer>> fold = Sink
                                                         .fold(0, (agg, next) -> {
                                                             int testNext = (int) (0 + next.toCompletableFuture().get());
                                                             return agg + next;
