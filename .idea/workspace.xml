@@ -262,8 +262,8 @@
       <listeners />
     </configuration>
     <list>
-      <item itemvalue="Maven.Unnamed" />
       <item itemvalue="Application.StressTesting" />
+      <item itemvalue="Maven.Unnamed" />
     </list>
   </component>
   <component name="SvnConfiguration">
