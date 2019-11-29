@@ -7,9 +7,7 @@ import akka.actor.Props;
 import akka.http.javadsl.ConnectHttp;
 import akka.http.javadsl.Http;
 import akka.http.javadsl.ServerBinding;
-import akka.http.javadsl.model.HttpMethods;
-import akka.http.javadsl.model.HttpRequest;
-import akka.http.javadsl.model.HttpResponse;
+import akka.http.javadsl.model.*;
 import akka.pattern.Patterns;
 import akka.stream.ActorMaterializer;
 import akka.stream.javadsl.*;
@@ -47,6 +45,8 @@ public class StressTesting {
     private static final String FINAL_ANSWER = "Medium response is in MS ->";
     private static final String NUMBER_ERROR = "NUMBER EXCEPTION";
     private static final String COUNT_ERROR = "COUNT PARAMETER IS EMPTY";
+    private static final String GET_ERROR = "ONLY GET METHOD";
+    private static final String PATH_ERROR = "BAD PATH";
 
     public static void main(String[] args) throws IOException {
 
@@ -77,13 +77,13 @@ public class StressTesting {
                             }
 
                             try {
-                                Integer countInteger =Integer.parseInt(count);
+                                Integer countInteger = Integer.parseInt(count);
                                 Pair<String, Integer> data = new Pair<>(url, countInteger);
                                 Source<Pair<String, Integer>, NotUsed> source = Source.from(Collections.singletonList(data));
 
-                                Flow<Pair<String, Integer>, HttpResponse, NotUsed> testSink = Flow.<Pair<String, Integer>> create()
+                                Flow<Pair<String, Integer>, HttpResponse, NotUsed> testSink = Flow.<Pair<String, Integer>>create()
                                         //map в Pair<url сайта из query параметра, Integer количество запросов>
-                                        .map(pair -> new Pair<> (HttpRequest.create().withUri(pair.first()), pair.second()))
+                                        .map(pair -> new Pair<>(HttpRequest.create().withUri(pair.first()), pair.second()))
                                         //mapAsync,
                                         .mapAsync(1, pair -> {
 //                        С помощью Patterns.ask посылаем запрос в кеширующий актор — есть ли результат. Обрабатываем ответ с помощью метода thenCompose
@@ -135,7 +135,6 @@ public class StressTesting {
                                         });
 
 
-
 //                        С помощью Patterns.ask посылаем запрос в кеширующий актор — есть ли результат. Обрабатываем ответ с помощью метода thenCompose
 //                        если результат уже посчитан, то возвращаем его как completedFuture
 //                        если нет, то создаем на лету flow из данных запроса, выполняем его и возвращаем СompletionStage<Long> :
@@ -146,6 +145,15 @@ public class StressTesting {
                                         source.via(testSink).toMat(Sink.last(), Keep.right());
                                 CompletionStage<HttpResponse> result = runnableGraph.run(materializer);
                                 return result.toCompletableFuture().get();
+                            } catch (NumberFormatException e) {
+                                e.printStackTrace();
+                                return HttpResponse.create().withEntity(ByteString.fromString(NUMBER_ERROR));
+                            }
+                        } else {
+                            req.discardEntityBytes(materializer);
+                            return HttpResponse.create().withStatus(StatusCodes.NOT_FOUND).withEntity(PATH_ERROR);
+                        }
+
 
         Sink<Integer, CompletionStage<Integer>> fold = Sink
                 .fold(0, (agg, next) -> agg + next);
