@@ -80,7 +80,9 @@ public class StressTesting {
                                 Source<Pair<String, Integer>, NotUsed> source = Source.from(Collections.singletonList(data));
 
                                 Flow<Pair<String, Integer>, HttpResponse, NotUsed> testSink = Flow.<Pair<String, Integer>> create()
+                                        //map в Pair<url сайта из query параметра, Integer количество запросов>
                                         .map(pair -> new Pair<> (HttpRequest.create().withUri(pair.first()), pair.second()))
+                                        //
                                         .mapAsync(1, pair -> {
 //                        С помощью Patterns.ask посылаем запрос в кеширующий актор — есть ли результат. Обрабатываем ответ с помощью метода thenCompose
 //                        если результат уже посчитан, то возвращаем его как completedFuture
