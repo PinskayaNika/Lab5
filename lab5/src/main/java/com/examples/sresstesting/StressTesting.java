@@ -27,6 +27,7 @@ import java.util.Collections;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CompletionStage;
 
+import static org.asynchttpclient.Dsl.asyncHttpClient;
 
 
 public class StressTesting {
@@ -107,9 +108,15 @@ public class StressTesting {
                                                                 Flow.<Pair<HttpRequest, Integer>> create()
                                                                 .mapConcat(p -> Collections.nCopies(p.second(), p.first()))
                                                                 .mapAsync(1, req2 -> {
-                                                                    return CompletableFuture.supplyAsync(() -> {
+                                                                    return CompletableFuture.supplyAsync(() ->
                                                                         System.currentTimeMillis()
-                                                                    }).thenCompose(start -> CompletableFuture.supplyAsync(() -> {
+                                                                    ).thenCompose(start -> CompletableFuture.supplyAsync(() -> {
+                                                                        CompletionStage<Long> whenResponse = asyncHttpClient()
+                                                                                .prepareGet(req2.getUri().toString())
+                                                                                .execute()
+                                                                                .toCompletableFuture()
+                                                                                .thenCompose(answer ->
+                                                                                CompletableFuture.completedFuture(System.currentTimeMillis() - start))
 
                                                                     })
                                                                 })
