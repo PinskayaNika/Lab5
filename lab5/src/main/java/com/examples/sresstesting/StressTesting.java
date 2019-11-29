@@ -98,8 +98,10 @@ public class StressTesting {
                                                 Sink<CompletionStage<Long>, CompletionStage<Integer>> fold = Sink
                                                         .fold(0, (agg, next) -> {
                                                             int testNext = (int) (0 + next.toCompletableFuture().get());
-                                                            return agg + next;
+                                                            return agg + testNext;
                                                         });
+                                                return Source.from(Collections.singletonList(pair))
+                                                        .toMat()
 
                                             });
                                         });
