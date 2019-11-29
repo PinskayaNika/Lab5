@@ -248,7 +248,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class StressTesting {
-    private static ActorRef controlActor;
+    //private static ActorRef controlActor;
     //private static final Logger logger = LoggerFactory.getLogger(StressTesting.class);
     private static final String ROUTES = "routes";
     private static final String WELCOME_MSG = "start!";
@@ -275,7 +275,7 @@ public class StressTesting {
         System.out.println(WELCOME_MSG);
         ActorSystem system = ActorSystem.create(ROUTES);
 
-        controlActor = system.actorOf(Props.create(CacheActor.class));
+        //controlActor = system.actorOf(Props.create(CacheActor.class));
         final Http http = Http.get(system);
         final ActorMaterializer materializer = ActorMaterializer.create(system);
         final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow = Flow.of(HttpRequest.class).map(
@@ -300,7 +300,7 @@ public class StressTesting {
                                         .mapAsync(1, pair -> {
                                                     return Patterns
                                                             .ask(
-                                                                    controlActor,
+                                                                    system.actorOf(Props.create(CacheActor.class)),
                                                                     new FindingResult(new javafx.util.Pair<>(data.first(), data.second())),
                                                                     Duration.ofMillis(TIME_MILLIS)
                                                             ).thenCompose(r ->
@@ -334,7 +334,7 @@ public class StressTesting {
                                                                                         .toMat(fold, Keep.right()), Keep.right()).run(materializer);
                                                             }).thenCompose(
                                                                     sum -> {
-                                                                        Patterns.ask(controlActor, new TestingResult(new javafx.util.Pair<>(data.first(), new javafx.util.Pair<>(data.second(), sum))), 5000);
+                                                                        Patterns.ask(system.actorOf(Props.create(CacheActor.class)), new TestingResult(new javafx.util.Pair<>(data.first(), new javafx.util.Pair<>(data.second(), sum))), 5000);
                                                                         Double middleValue = (double) sum / (double) countInteger;
                                                                         return CompletableFuture.completedFuture(HttpResponse.create().withEntity(ByteString.fromString(FINAL_ANSWER + middleValue.toString())));
                                                                     }
