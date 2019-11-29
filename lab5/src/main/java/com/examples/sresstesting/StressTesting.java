@@ -58,6 +58,7 @@ public class StressTesting {
         final ActorMaterializer materializer = ActorMaterializer.create(system);
 
         //HttpRequest (этот запрос пришел снаружи) преобразуется в HttpResponse
+        //<вызов метода которому передаем Http, ActorSystem и ActorMaterializer>
         final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow = Flow.of(HttpRequest.class)
                 .map(
                         req -> {

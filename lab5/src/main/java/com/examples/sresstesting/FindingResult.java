@@ -6,9 +6,9 @@ package com.examples.sresstesting;
 import javafx.util.Pair;
 
 public class FindingResult {
-    Pair<String, Integer> msgPair;
+    private Pair<String, Integer> msgPair;
 
-    public FindingResult(Pair<String, Integer> pair) {
+    FindingResult(Pair<String, Integer> pair) {
         this.msgPair = pair;
     }
 
@@ -16,11 +16,11 @@ public class FindingResult {
         return msgPair;
     }
 
-    public String getURL() {
+    String getURL() {
         return msgPair.getKey();
     }
 
-    public int getCount() {
+    int getCount() {
         return msgPair.getValue();
     }
 }
