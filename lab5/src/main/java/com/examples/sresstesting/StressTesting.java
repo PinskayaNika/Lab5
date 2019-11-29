@@ -1,61 +1,61 @@
 package com.examples.sresstesting;
-//
-//import akka.NotUsed;
-////import akka.actor.ActorRef;
-//import akka.actor.ActorSystem;
-//import akka.actor.Props;
-//import akka.http.javadsl.ConnectHttp;
-//import akka.http.javadsl.Http;
-//import akka.http.javadsl.ServerBinding;
-//import akka.http.javadsl.model.*;
-//import akka.pattern.Patterns;
-//import akka.stream.ActorMaterializer;
-//import akka.stream.javadsl.*;
-//import akka.japi.Pair;
-//import akka.util.ByteString;
-////import akka.util.Collections;
-////import javafx.util.Pair;
-////import org.omg.CORBA.TIMEOUT;
-//
-//import java.io.IOException;
-//import java.time.Duration;
-//import java.util.Collections;
-//import java.util.concurrent.CompletableFuture;
-//import java.util.concurrent.CompletionStage;
-//
-//import static org.asynchttpclient.Dsl.asyncHttpClient;
-//
-//
-//public class StressTesting {
-//
-//    //private static ActorRef controlActor;
-//    private static final String LOCALHOST = "localhost";
-//    private static final String SERVER_INFO = "Server online at http://localhost:8080/\nPress RETURN to stop...";
-//    private static final int SERVER_PORT = 8080; //(localhost)
-//    private static final int TIMEOUT_MILLIS = 5000;
-//    private static final String HOME_DIR = "/";
-//    private static final String EMPTY_STRING = "";
-//    private static final String COUNT = "count";
-//    private static final String TEST_URL = "testURL";
-//    private static final String URL_ERROR = "URL PARAMETER IS EMPTY";
-//    private static final String FINAL_ANSWER = "Medium response is in MS ->";
-//    private static final String NUMBER_ERROR = "NUMBER EXCEPTION";
-//    private static final String COUNT_ERROR = "COUNT PARAMETER IS EMPTY";
-//    private static final String GET_ERROR = "ONLY GET METHOD";
-//    private static final String PATH_ERROR = "BAD PATH";
-//    private static final int ZERO = 0;
-//
-//    public static void main(String[] args) throws IOException {
-//
-//        //Инициализация http сервера в akka
-//        System.out.println("start!");
-//        ActorSystem system = ActorSystem.create("routes");
-//
-//        //controlActor = system.actorOf(Props.create(CacheActor.class));
-//
-//        final Http http = Http.get(system);
-//        final ActorMaterializer materializer = ActorMaterializer.create(system);
-//
+
+import akka.NotUsed;
+//import akka.actor.ActorRef;
+import akka.actor.ActorSystem;
+import akka.actor.Props;
+import akka.http.javadsl.ConnectHttp;
+import akka.http.javadsl.Http;
+import akka.http.javadsl.ServerBinding;
+import akka.http.javadsl.model.*;
+import akka.pattern.Patterns;
+import akka.stream.ActorMaterializer;
+import akka.stream.javadsl.*;
+import akka.japi.Pair;
+import akka.util.ByteString;
+//import akka.util.Collections;
+//import javafx.util.Pair;
+//import org.omg.CORBA.TIMEOUT;
+
+import java.io.IOException;
+import java.time.Duration;
+import java.util.Collections;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.CompletionStage;
+
+import static org.asynchttpclient.Dsl.asyncHttpClient;
+
+
+public class StressTesting {
+
+    //private static ActorRef controlActor;
+    private static final String LOCALHOST = "localhost";
+    private static final String SERVER_INFO = "Server online at http://localhost:8080/\nPress RETURN to stop...";
+    private static final int SERVER_PORT = 8080; //(localhost)
+    private static final int TIMEOUT_MILLIS = 5000;
+    private static final String HOME_DIR = "/";
+    private static final String EMPTY_STRING = "";
+    private static final String COUNT = "count";
+    private static final String TEST_URL = "testURL";
+    private static final String URL_ERROR = "URL PARAMETER IS EMPTY";
+    private static final String FINAL_ANSWER = "Medium response is in MS ->";
+    private static final String NUMBER_ERROR = "NUMBER EXCEPTION";
+    private static final String COUNT_ERROR = "COUNT PARAMETER IS EMPTY";
+    private static final String GET_ERROR = "ONLY GET METHOD";
+    private static final String PATH_ERROR = "BAD PATH";
+    private static final int ZERO = 0;
+
+    public static void main(String[] args) throws IOException {
+
+        //Инициализация http сервера в akka
+        System.out.println("start!");
+        ActorSystem system = ActorSystem.create("routes");
+
+        //controlActor = system.actorOf(Props.create(CacheActor.class));
+
+        final Http http = Http.get(system);
+        final ActorMaterializer materializer = ActorMaterializer.create(system);
+
 //        //HttpRequest (этот запрос пришел снаружи) преобразуется в HttpResponse
 //        //<вызов метода которому передаем Http, ActorSystem и ActorMaterializer>
 //        final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow = Flow.of(HttpRequest.class)
@@ -212,72 +212,72 @@ package com.examples.sresstesting;
 //}
 
 
-import akka.NotUsed;
-import akka.actor.ActorRef;
-import akka.actor.ActorSystem;
-import akka.actor.Props;
-import akka.http.javadsl.ConnectHttp;
-import akka.http.javadsl.Http;
-import akka.http.javadsl.ServerBinding;
-import akka.http.javadsl.model.*;
-import akka.pattern.Patterns;
-import akka.stream.ActorMaterializer;
-import akka.stream.javadsl.Flow;
-import akka.stream.javadsl.Keep;
-import akka.stream.javadsl.Sink;
-import akka.stream.javadsl.Source;
-import akka.japi.Pair;
-import akka.util.ByteString;
-import akka.util.Timeout;
-import org.asynchttpclient.Response;
-import scala.concurrent.Await;
-import scala.concurrent.Future;
-import org.asynchttpclient.*;
-
-import static org.asynchttpclient.Dsl.asyncHttpClient;
-
-import java.io.IOException;
-import java.time.Duration;
-import java.util.Collections;
-import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.CompletionStage;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.TimeUnit;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-public class StressTesting {
-    //private static ActorRef controlActor;
-    //private static final Logger logger = LoggerFactory.getLogger(StressTesting.class);
-    private static final String ROUTES = "routes";
-    private static final String WELCOME_MSG = "start!";
-    private static final String HOME_DIR = "/";
-    private static final String TEST_URL = "testUrl";
-    private static final String COUNT = "count";
-    private static final String EMPTY_STRING = "";
-    private static final String URL_ERROR = "URL PARAMETER IS EMPTY";
-    private static final String COUNT_ERROR = "COUNT PARAMETER IS EMPTY";
-    private static final String FINAL_ANSWER = "Medium response is in MS ->";
-    private static final String NUMBER_ERROR = "NUMBER EXCEPTION";
-    private static final String PATH_ERROR = "BAD PATH";
-    private static final String GET_ERROR = "ONLY GET METHOD!";
-    private static final String SERVER_WELCOME_MSG = "Server online at http://localhost:8080/\nPress RETURN to stop...";
-    private static final String LOCALHOST = "localhost";
-    private static final int LOCALHOST_PORT = 8080;
-    private static final long TIME_MILLIS = 5000;
-    private static final int ZERO = 0;
-    private static final int NO_SUCH_DATA = -1;
-    private static final int PARALLELISM = 1;
-
-    public static void main(String[] args) throws IOException {
-
-        System.out.println(WELCOME_MSG);
-        ActorSystem system = ActorSystem.create(ROUTES);
-
-        //controlActor = system.actorOf(Props.create(CacheActor.class));
-        final Http http = Http.get(system);
-        final ActorMaterializer materializer = ActorMaterializer.create(system);
+//import akka.NotUsed;
+//import akka.actor.ActorRef;
+//import akka.actor.ActorSystem;
+//import akka.actor.Props;
+//import akka.http.javadsl.ConnectHttp;
+//import akka.http.javadsl.Http;
+//import akka.http.javadsl.ServerBinding;
+//import akka.http.javadsl.model.*;
+//import akka.pattern.Patterns;
+//import akka.stream.ActorMaterializer;
+//import akka.stream.javadsl.Flow;
+//import akka.stream.javadsl.Keep;
+//import akka.stream.javadsl.Sink;
+//import akka.stream.javadsl.Source;
+//import akka.japi.Pair;
+//import akka.util.ByteString;
+//import akka.util.Timeout;
+//import org.asynchttpclient.Response;
+//import scala.concurrent.Await;
+//import scala.concurrent.Future;
+//import org.asynchttpclient.*;
+//
+//import static org.asynchttpclient.Dsl.asyncHttpClient;
+//
+//import java.io.IOException;
+//import java.time.Duration;
+//import java.util.Collections;
+//import java.util.concurrent.CompletableFuture;
+//import java.util.concurrent.CompletionStage;
+//import java.util.concurrent.ExecutionException;
+//import java.util.concurrent.TimeUnit;
+//
+//import org.slf4j.Logger;
+//import org.slf4j.LoggerFactory;
+//
+//public class StressTesting {
+//    //private static ActorRef controlActor;
+//    //private static final Logger logger = LoggerFactory.getLogger(StressTesting.class);
+//    private static final String ROUTES = "routes";
+//    private static final String WELCOME_MSG = "start!";
+//    private static final String HOME_DIR = "/";
+//    private static final String TEST_URL = "testUrl";
+//    private static final String COUNT = "count";
+//    private static final String EMPTY_STRING = "";
+//    private static final String URL_ERROR = "URL PARAMETER IS EMPTY";
+//    private static final String COUNT_ERROR = "COUNT PARAMETER IS EMPTY";
+//    private static final String FINAL_ANSWER = "Medium response is in MS ->";
+//    private static final String NUMBER_ERROR = "NUMBER EXCEPTION";
+//    private static final String PATH_ERROR = "BAD PATH";
+//    private static final String GET_ERROR = "ONLY GET METHOD!";
+//    private static final String SERVER_WELCOME_MSG = "Server online at http://localhost:8080/\nPress RETURN to stop...";
+//    private static final String LOCALHOST = "localhost";
+//    private static final int LOCALHOST_PORT = 8080;
+//    private static final long TIME_MILLIS = 5000;
+//    private static final int ZERO = 0;
+//    private static final int NO_SUCH_DATA = -1;
+//    private static final int PARALLELISM = 1;
+//
+//    public static void main(String[] args) throws IOException {
+//
+//        System.out.println(WELCOME_MSG);
+//        ActorSystem system = ActorSystem.create(ROUTES);
+//
+//        //controlActor = system.actorOf(Props.create(CacheActor.class));
+//        final Http http = Http.get(system);
+//        final ActorMaterializer materializer = ActorMaterializer.create(system);
         final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow = Flow.of(HttpRequest.class).map(
                 req -> {
                     if (req.method() == HttpMethods.GET) {
@@ -302,10 +302,10 @@ public class StressTesting {
                                                             .ask(
                                                                     system.actorOf(Props.create(CacheActor.class)),
                                                                     new FindingResult(new javafx.util.Pair<>(data.first(), data.second())),
-                                                                    Duration.ofMillis(TIME_MILLIS)
+                                                                    Duration.ofMillis(TIMEOUT_MILLIS)
                                                             ).thenCompose(r ->
                                                             {
-                                                                if ((int) r != NO_SUCH_DATA) {
+                                                                if ((int) r != -1) {
                                                                     return CompletableFuture.completedFuture((int) r);
                                                                 }
                                                                 // fold for counting all time
@@ -318,7 +318,7 @@ public class StressTesting {
                                                                         .toMat(
                                                                                 Flow.<Pair<HttpRequest, Integer>>create()
                                                                                         .mapConcat(p -> Collections.nCopies(p.second(), p.first()))
-                                                                                        .mapAsync(PARALLELISM, req2 -> {
+                                                                                        .mapAsync(1, req2 -> {
                                                                                             return CompletableFuture.supplyAsync(() ->
                                                                                                     System.currentTimeMillis()
                                                                                             ).thenCompose(start -> CompletableFuture.supplyAsync(() -> {
@@ -334,7 +334,7 @@ public class StressTesting {
                                                                                         .toMat(fold, Keep.right()), Keep.right()).run(materializer);
                                                             }).thenCompose(
                                                                     sum -> {
-                                                                        Patterns.ask(system.actorOf(Props.create(CacheActor.class)), new TestingResult(new javafx.util.Pair<>(data.first(), new javafx.util.Pair<>(data.second(), sum))), 5000);
+                                                                        Patterns.ask(system.actorOf(Props.create(CacheActor.class)), new TestingResult(new javafx.util.Pair<>(data.first(), new javafx.util.Pair<>(data.second(), sum))), TIMEOUT_MILLIS);
                                                                         Double middleValue = (double) sum / (double) countInteger;
                                                                         return CompletableFuture.completedFuture(HttpResponse.create().withEntity(ByteString.fromString(FINAL_ANSWER + middleValue.toString())));
                                                                     }
@@ -358,10 +358,10 @@ public class StressTesting {
                 });
         final CompletionStage<ServerBinding> binding = http.bindAndHandle(
                 routeFlow,
-                ConnectHttp.toHost(LOCALHOST, LOCALHOST_PORT),
+                ConnectHttp.toHost(LOCALHOST, SERVER_PORT),
                 materializer
         );
-        System.out.println(SERVER_WELCOME_MSG);
+        System.out.println(SERVER_INFO);
         System.in.read();
         binding
                 .thenCompose(ServerBinding::unbind)
