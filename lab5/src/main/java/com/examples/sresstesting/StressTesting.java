@@ -64,7 +64,26 @@ public class StressTesting {
                 .map(
                         req -> {
                             if (req.method() == HttpMethods.GET) {
-                                if (req.getUri().path().equals(HOME_DIR)) {
+                                if (req.getUri().p    import akka.NotUsed;
+        import akka.actor.ActorRef;
+        import akka.actor.ActorSystem;
+        import akka.actor.Props;
+        import akka.http.javadsl.ConnectHttp;
+        import akka.http.javadsl.Http;
+        import akka.http.javadsl.ServerBinding;
+        import akka.http.javadsl.model.HttpRequest;
+        import akka.http.javadsl.model.HttpResponse;
+        import akka.http.javadsl.server.AllDirectives;
+        import akka.http.javadsl.server.Route;
+        import akka.pattern.Patterns;
+        import akka.stream.ActorMaterializer;
+        import akka.stream.javadsl.Flow;
+        import org.apache.zookeeper.*;
+        import java.io.IOException;
+        import java.util.ArrayList;
+        import java.util.List;
+        import java.util.Scanner;
+        import java.util.concurrent.*;ath().equals(HOME_DIR)) {
                                     String url = req.getUri().query().get(TEST_URL).orElse(EMPTY_STRING);
                                     String count = req.getUri().query().get(COUNT).orElse(EMPTY_STRING);
 
