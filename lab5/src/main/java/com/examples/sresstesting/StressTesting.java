@@ -58,6 +58,8 @@ public class StressTesting {
 
         //HttpRequest (этот запрос пришел снаружи) преобразуется в HttpResponse
         //<вызов метода которому передаем Http, ActorSystem и ActorMaterializer>
+
+        //на flow должен прийти response, уйти request
         final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow = Flow.of(HttpRequest.class)
                 .map(
                         req -> {
@@ -153,9 +155,11 @@ public class StressTesting {
                                                                                                             .completedFuture(System.currentTimeMillis() - start));*/
 
                                                                                 })))
+                                                                                //запуск
                                                                                 .toMat(fold, Keep.right()), Keep.right()).run(materializer);
                                                     })
                                                             .thenCompose(
+                                                                    //в sum лежит большое число - наша сумма
                                                                     sum -> {
                                                                         Patterns.ask(
                                                                                 system.actorOf(Props.create(CacheActor.class)),
