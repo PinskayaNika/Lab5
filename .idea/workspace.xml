@@ -12,20 +12,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lab5/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="760">
+            <state relative-caret-position="19">
               <caret line="40" selection-start-line="40" selection-end-line="40" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="StressTesting.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="StressTesting.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lab5/src/main/java/com/examples/sresstesting/StressTesting.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="61" column="54" selection-start-line="61" selection-start-column="54" selection-end-line="61" selection-end-column="54" />
+            <state relative-caret-position="1273">
+              <caret line="85" column="38" selection-start-line="85" selection-start-column="38" selection-end-line="85" selection-end-column="38" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#3800#3823#0" expanded="true" />
@@ -238,7 +238,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="25" width="985" height="1050" extended-state="0" />
+    <frame x="0" y="25" width="985" height="1050" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
@@ -515,13 +515,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lab5/src/main/java/com/examples/sresstesting/tea.java" />
-    <entry file="file://$PROJECT_DIR$/lab5/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="760">
-          <caret line="40" selection-start-line="40" selection-end-line="40" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lab5/src/main/java/com/examples/sresstesting/CacheActor.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="361">
@@ -572,13 +565,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lab5/src/main/java/com/examples/sresstesting/StressTesting.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="61" column="54" selection-start-line="61" selection-start-column="54" selection-end-line="61" selection-end-column="54" />
+        <state relative-caret-position="1273">
+          <caret line="85" column="38" selection-start-line="85" selection-start-column="38" selection-end-line="85" selection-end-column="38" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#3800#3823#0" expanded="true" />
             <element signature="e#6314#6342#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lab5/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="40" selection-start-line="40" selection-end-line="40" />
         </state>
       </provider>
     </entry>
