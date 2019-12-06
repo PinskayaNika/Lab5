@@ -30,7 +30,7 @@ public class StressTesting {
 
     //private static ActorRef controlActor;
     private static final String LOCALHOST = "localhost";
-    private static final String SERVER_INFO = "Server online at http://localhost:8080/\nPress RETURN to stop...";
+    private static final String SERVER_INFO = "Server online at http://localhost:8084/\nPress RETURN to stop...";
     private static final int SERVER_PORT = 8084; //(localhost)
     private static final int TIMEOUT_MILLIS = 5000;
     private static final String HOME_DIR = "/";
