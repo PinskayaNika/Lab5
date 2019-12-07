@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="44f73463-5e15-459f-9c49-84b624d2723c" name="Default" comment="" />
+    <list default="true" id="44f73463-5e15-459f-9c49-84b624d2723c" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/lab5/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/lab5/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lab5/src/main/java/com/examples/sresstesting/StressTesting.java" beforeDir="false" afterPath="$PROJECT_DIR$/lab5/src/main/java/com/examples/sresstesting/StressTesting.java" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/lab5/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -15,8 +18,8 @@
       <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lab5/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="50" column="51" lean-forward="true" selection-start-line="50" selection-start-column="51" selection-end-line="50" selection-end-column="51" />
+            <state>
+              <caret column="16" selection-start-column="16" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -24,8 +27,8 @@
       <file leaf-file-name="StressTesting.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lab5/src/main/java/com/examples/sresstesting/StressTesting.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1287">
-              <caret line="41" column="66" lean-forward="true" selection-start-line="41" selection-start-column="66" selection-end-line="41" selection-end-column="66" />
+            <state relative-caret-position="-1717">
+              <caret line="79" column="67" selection-start-line="79" selection-start-column="67" selection-end-line="79" selection-end-column="67" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#3800#3823#0" expanded="true" />
@@ -76,7 +79,7 @@
       <file leaf-file-name="CacheActor.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lab5/src/main/java/com/examples/sresstesting/CacheActor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="19">
+            <state relative-caret-position="-304">
               <caret line="19" selection-start-line="19" selection-end-line="19" />
             </state>
           </provider>
@@ -104,6 +107,10 @@
       <find>Stress</find>
       <find>curr</find>
       <find>8080</find>
+      <find>MS</find>
+      <find>FINAL_ANSWER</find>
+      <find>countInteger</find>
+      <find>sum</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -112,12 +119,12 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/lab5/pom.xml" />
         <option value="$PROJECT_DIR$/lab5/src/main/java/com/examples/sresstesting/tea.java" />
         <option value="$PROJECT_DIR$/lab5/src/main/java/com/examples/sresstesting/CacheActor.java" />
         <option value="$PROJECT_DIR$/lab5/src/main/java/com/examples/sresstesting/FindingResult.java" />
         <option value="$PROJECT_DIR$/lab5/src/main/java/com/examples/sresstesting/TestingResult.java" />
         <option value="$PROJECT_DIR$/lab5/src/main/java/com/examples/sresstesting/StressTesting.java" />
+        <option value="$PROJECT_DIR$/lab5/pom.xml" />
       </list>
     </option>
   </component>
@@ -603,22 +610,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lab5/src/main/java/com/examples/sresstesting/CacheActor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
+        <state relative-caret-position="-304">
           <caret line="19" selection-start-line="19" selection-end-line="19" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lab5/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="50" column="51" lean-forward="true" selection-start-line="50" selection-start-column="51" selection-end-line="50" selection-end-column="51" />
+        <state>
+          <caret column="16" selection-start-column="16" selection-end-column="16" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lab5/src/main/java/com/examples/sresstesting/StressTesting.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1287">
-          <caret line="41" column="66" lean-forward="true" selection-start-line="41" selection-start-column="66" selection-end-line="41" selection-end-column="66" />
+        <state relative-caret-position="-1717">
+          <caret line="79" column="67" selection-start-line="79" selection-start-column="67" selection-end-line="79" selection-end-column="67" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#3800#3823#0" expanded="true" />

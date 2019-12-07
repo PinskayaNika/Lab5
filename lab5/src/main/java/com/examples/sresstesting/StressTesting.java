@@ -77,6 +77,7 @@ public class StressTesting {
                                     }
 
                                     try {
+                                        //число получаемых запросов
                                         Integer countInteger = Integer.parseInt(count);
                                         Pair<String, Integer> data = new Pair<>(url, countInteger);
                                         Source<Pair<String, Integer>, NotUsed> source = Source.from(Collections.singletonList(data));
@@ -166,8 +167,9 @@ public class StressTesting {
                                                                                 new TestingResult(
                                                                                         new javafx.util.Pair<>(data.first(), new javafx.util.Pair<>(data.second(), sum))),
                                                                                         TIMEOUT_MILLIS);
+                                                                        //считаем среднее время
                                                                         Double middleValue = (double) sum / (double) countInteger;
-                                                                        //
+                                                                        //Формирование строки результата
                                                                         return CompletableFuture
                                                                                 .completedFuture(HttpResponse
                                                                                         .create().withEntity(ByteString.fromString(FINAL_ANSWER + middleValue.toString())));
