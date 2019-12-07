@@ -77,12 +77,7 @@ public class StressTesting {
                                         return HttpResponse.create().withEntity(ByteString.fromString(COUNT_ERROR));
                                     }
 
-                                    if () (NumberFormatException e){
-                                        e.printStackTrace();
-                                        return HttpResponse
-                                                .create().withEntity(ByteString.fromString(NUMBER_ERROR));
-                                    }
-                                    try {
+                                   //try{
                                         //число получаемых запросов
                                         Integer countInteger = Integer.parseInt(count);
                                         Pair<String, Integer> data = new Pair<>(url, countInteger);
@@ -196,11 +191,11 @@ public class StressTesting {
                                         CompletionStage<HttpResponse> result = runnableGraph.run(materializer);
                                         //CompletionStage<HttpResponse> result = source.via(testSink).toMat(Sink.last(), Keep.right()).run(materializer);
                                         return result.toCompletableFuture().get();
-                                    } catch (NumberFormatException e) {
+                                    /*} catch (NumberFormatException e) {
                                         e.printStackTrace();
                                         return HttpResponse
                                                 .create().withEntity(ByteString.fromString(NUMBER_ERROR));
-                                    }
+                                    }*/
                                 } else {
                                     req.discardEntityBytes(materializer);
                                     return HttpResponse
