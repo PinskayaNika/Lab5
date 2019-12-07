@@ -95,7 +95,7 @@ public class StressTesting {
 //                        Source.from(Collections.singletonList(r))
 //                                .toMat(testSink, Keep.right()).run(materializer);
                                                     return Patterns.ask(
-                                                            system.actparseIntorOf(Props.create(CacheActor.class)),
+                                                            controlActor,
                                                             new FindingResult(new javafx.util.Pair<>(data.first(), data.second())),
                                                             Duration.ofMillis(TIMEOUT_MILLIS)
                                                     ).thenCompose(r -> {
@@ -164,7 +164,7 @@ public class StressTesting {
                                                                     //в sum лежит большое число - наша сумма
                                                                     sum -> {
                                                                         Patterns.ask(
-                                                                                system.actorOf(Props.create(CacheActor.class)),
+                                                                                controlActor,
                                                                                 new TestingResult(
                                                                                         new javafx.util.Pair<>(data.first(), new javafx.util.Pair<>(data.second(), sum))),
                                                                                         TIMEOUT_MILLIS);
