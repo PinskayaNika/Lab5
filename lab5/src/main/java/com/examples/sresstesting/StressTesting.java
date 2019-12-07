@@ -77,6 +77,11 @@ public class StressTesting {
                                         return HttpResponse.create().withEntity(ByteString.fromString(COUNT_ERROR));
                                     }
 
+                                    if () (NumberFormatException e){
+                                        e.printStackTrace();
+                                        return HttpResponse
+                                                .create().withEntity(ByteString.fromString(NUMBER_ERROR));
+                                    }
                                     try {
                                         //число получаемых запросов
                                         Integer countInteger = Integer.parseInt(count);
