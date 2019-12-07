@@ -2,6 +2,7 @@ package com.examples.sresstesting;
 
 import akka.NotUsed;
 //import akka.actor.ActorRef;
+import akka.actor.ActorRef;
 import akka.actor.ActorSystem;
 import akka.actor.Props;
 import akka.http.javadsl.ConnectHttp;
@@ -28,7 +29,7 @@ import static org.asynchttpclient.Dsl.asyncHttpClient;
 
 public class StressTesting {
 
-    //private static ActorRef controlActor;
+    private static ActorRef controlActor;
     private static final String LOCALHOST = "localhost";
     private static final String SERVER_INFO = "Server online at http://localhost:8084/\nPress RETURN to stop...";
     private static final int SERVER_PORT = 8084; //(localhost)
@@ -51,7 +52,7 @@ public class StressTesting {
         System.out.println("start!");
         ActorSystem system = ActorSystem.create("routes");
 
-        //controlActor = system.actorOf(Props.create(CacheActor.class));
+        controlActor = system.actorOf(Props.create(CacheActor.class));
 
         final Http http = Http.get(system);
         final ActorMaterializer materializer = ActorMaterializer.create(system);
@@ -94,7 +95,7 @@ public class StressTesting {
 //                        Source.from(Collections.singletonList(r))
 //                                .toMat(testSink, Keep.right()).run(materializer);
                                                     return Patterns.ask(
-                                                            system.actorOf(Props.create(CacheActor.class)),
+                                                            system.actparseIntorOf(Props.create(CacheActor.class)),
                                                             new FindingResult(new javafx.util.Pair<>(data.first(), data.second())),
                                                             Duration.ofMillis(TIMEOUT_MILLIS)
                                                     ).thenCompose(r -> {
