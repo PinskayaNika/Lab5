@@ -96,7 +96,7 @@ public class StressTesting {
 //                                .toMat(testSink, Keep.right()).run(materializer);
                                                     return Patterns.ask(
                                                             controlActor,
-                                                            new FindingResult(new javafx.util.Pair<>(data.first(), data.second())),
+                                                            new FindingResult(data.first(), data.second()),
                                                             Duration.ofMillis(TIMEOUT_MILLIS)
                                                     ).thenCompose(r -> {
                                                         if ((int) r != -1) {
@@ -165,8 +165,7 @@ public class StressTesting {
                                                                     sum -> {
                                                                         Patterns.ask(
                                                                                 controlActor,
-                                                                                new TestingResult(
-                                                                                        new javafx.util.Pair<>(data.first(), new javafx.util.Pair<>(data.second(), sum))),
+                                                                                new TestingResult(data.first(), data.second(), sum),
                                                                                         TIMEOUT_MILLIS);
                                                                         //считаем среднее время
                                                                         Double middleValue = (double) sum / (double) countInteger;

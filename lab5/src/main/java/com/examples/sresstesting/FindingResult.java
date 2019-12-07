@@ -6,21 +6,21 @@ package com.examples.sresstesting;
 import javafx.util.Pair;
 
 public class FindingResult {
-    private Pair<String, Integer> msgPair;
+    //private Pair<String, Integer> msgPair;
+    private String msgUrl;
+    private int msgCount;
 
-    FindingResult(Pair<String, Integer> pair) {
-        this.msgPair = pair;
+    FindingResult(String url, int count) {
+        this.msgUrl = url;
+        this.msgCount = count;
     }
 
-    public Pair<String, Integer> getMsgPair() {
-        return msgPair;
-    }
 
     String getURL() {
-        return msgPair.getKey();
+        return msgUrl;
     }
 
     int getCount() {
-        return msgPair.getValue();
+        return msgCount;
     }
 }
